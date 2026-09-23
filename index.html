@@ -52,6 +52,7 @@
         var(--bg);
 
       color: var(--text);
+
       font-family:
         Inter,
         -apple-system,
@@ -64,6 +65,10 @@
 
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     a {
@@ -86,7 +91,7 @@
 
     /* =========================
        HEADER
-    ========================= */
+    ========================== */
 
     header {
       position: sticky;
@@ -132,7 +137,7 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 18px;
     }
 
     nav a {
@@ -160,8 +165,283 @@
     }
 
     /* =========================
+       MENU BUTTON
+    ========================== */
+
+    .menu-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 40px;
+      padding: 0 13px;
+
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      background: rgba(255,255,255,0.025);
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: 13px;
+      font-weight: 750;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-button:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .menu-icon {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      width: 15px;
+    }
+
+    .menu-icon span {
+      display: block;
+
+      width: 15px;
+      height: 1.5px;
+
+      border-radius: 2px;
+      background: currentColor;
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .menu-button.open .menu-icon span:nth-child(1) {
+      transform: translateY(5.5px) rotate(45deg);
+    }
+
+    .menu-button.open .menu-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.open .menu-icon span:nth-child(3) {
+      transform: translateY(-5.5px) rotate(-45deg);
+    }
+
+    /* =========================
+       MENU OVERLAY
+    ========================== */
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+
+      z-index: 200;
+
+      display: flex;
+      justify-content: flex-end;
+
+      background: rgba(0,0,0,0.48);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .menu-panel {
+      width: min(430px, 100%);
+      height: 100%;
+
+      overflow-y: auto;
+
+      padding: 86px 22px 28px;
+
+      border-left: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 80% 0%,
+          rgba(239,51,64,0.08),
+          transparent 28%
+        ),
+        #0b0e12;
+
+      box-shadow:
+        -30px 0 80px rgba(0,0,0,0.35);
+
+      transform: translateX(28px);
+
+      transition:
+        transform 0.25s ease;
+    }
+
+    .menu-overlay.open .menu-panel {
+      transform: translateX(0);
+    }
+
+    .menu-panel-heading {
+      margin-bottom: 18px;
+      padding: 0 4px;
+    }
+
+    .menu-panel-heading span {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--red);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .menu-panel-heading h2 {
+      font-size: 30px;
+      letter-spacing: -0.04em;
+    }
+
+    /* =========================
+       MENU CARDS
+    ========================== */
+
+    .menu-card {
+      margin-top: 10px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 11px;
+
+      background: rgba(255,255,255,0.018);
+    }
+
+    .menu-card-toggle {
+      width: 100%;
+      min-height: 58px;
+
+      padding: 0 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border: 0;
+
+      background: transparent;
+      color: var(--text);
+
+      cursor: pointer;
+
+      text-align: left;
+
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .menu-card-toggle:hover {
+      background: rgba(255,255,255,0.025);
+    }
+
+    .menu-card-arrow {
+      color: #777d86;
+
+      font-size: 18px;
+      font-weight: 400;
+
+      transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .menu-card.open .menu-card-arrow {
+      color: var(--red);
+      transform: rotate(45deg);
+    }
+
+    .menu-card-content {
+      display: grid;
+
+      grid-template-rows: 0fr;
+
+      transition:
+        grid-template-rows 0.25s ease;
+    }
+
+    .menu-card-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .menu-card.open .menu-card-content {
+      grid-template-rows: 1fr;
+    }
+
+    .menu-links {
+      padding: 0 10px 10px;
+    }
+
+    .menu-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 42px;
+
+      padding: 0 10px;
+
+      border-radius: 7px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .menu-links a:hover {
+      background: rgba(255,255,255,0.035);
+      color: var(--text);
+    }
+
+    .menu-links a::after {
+      content: "↗";
+
+      color: #5f656e;
+
+      font-size: 12px;
+    }
+
+    .menu-footer {
+      margin-top: 22px;
+      padding: 0 4px;
+
+      color: #626872;
+
+      font-size: 11px;
+    }
+
+    /* =========================
        HERO
-    ========================= */
+    ========================== */
 
     .hero {
       position: relative;
@@ -349,7 +629,7 @@
 
     /* =========================
        PUBLIC STATS
-    ========================= */
+    ========================== */
 
     .stats {
       border-top: 1px solid var(--border);
@@ -425,7 +705,7 @@
 
     /* =========================
        SECTION BASICS
-    ========================= */
+    ========================== */
 
     section {
       padding: 120px 0;
@@ -475,12 +755,11 @@
     }
 
     /* =========================
-       CONTROL CENTER MOCKUP
-    ========================= */
+       CONTROL CENTER
+    ========================== */
 
     .control-center {
       position: relative;
-
       overflow: hidden;
 
       border: 1px solid var(--border);
@@ -625,7 +904,9 @@
       text-transform: uppercase;
     }
 
-    /* MAP */
+    /* =========================
+       MAP
+    ========================== */
 
     .map {
       position: relative;
@@ -708,12 +989,14 @@
     .road-one {
       top: 38%;
       left: -15%;
+
       transform: rotate(24deg);
     }
 
     .road-two {
       top: 67%;
       left: -10%;
+
       transform: rotate(-18deg);
     }
 
@@ -775,7 +1058,7 @@
 
     /* =========================
        FEATURES
-    ========================= */
+    ========================== */
 
     .features {
       display: grid;
@@ -838,7 +1121,7 @@
 
     /* =========================
        DEVELOPMENT
-    ========================= */
+    ========================== */
 
     .development {
       background: var(--bg-soft);
@@ -937,7 +1220,7 @@
 
     /* =========================
        COMMUNITY
-    ========================= */
+    ========================== */
 
     .community-box {
       position: relative;
@@ -975,7 +1258,7 @@
 
     /* =========================
        FOOTER
-    ========================= */
+    ========================== */
 
     footer {
       border-top: 1px solid var(--border);
@@ -1008,7 +1291,8 @@
 
       font-size: 12px;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
     }
 
     .footer-links a:hover {
@@ -1016,8 +1300,8 @@
     }
 
     /* =========================
-       MOBILE
-    ========================= */
+       TABLET
+    ========================== */
 
     @media (max-width: 850px) {
 
@@ -1027,6 +1311,7 @@
 
       .hero {
         min-height: auto;
+
         padding: 90px 0 75px;
       }
 
@@ -1076,6 +1361,10 @@
       }
     }
 
+    /* =========================
+       MOBILE
+    ========================== */
+
     @media (max-width: 550px) {
 
       .container {
@@ -1094,7 +1383,21 @@
       }
 
       .nav-discord {
-        padding: 8px 11px;
+        display: none;
+      }
+
+      .menu-button {
+        width: 42px;
+        min-height: 40px;
+        padding: 0;
+      }
+
+      .menu-button-label {
+        display: none;
+      }
+
+      .menu-panel {
+        padding: 78px 14px 22px;
       }
 
       .hero {
@@ -1182,15 +1485,24 @@
   <header>
     <div class="container nav">
 
-      <a href="#" class="brand">
+      <a href="#projekt" class="brand">
         <span class="brand-mark"></span>
         LEITSTELLENDISPO
       </a>
 
       <nav>
-        <a href="#projekt">Projekt</a>
-        <a href="#features">Funktionen</a>
-        <a href="#entwicklung">Entwicklung</a>
+
+        <a href="#projekt">
+          Projekt
+        </a>
+
+        <a href="#features">
+          Funktionen
+        </a>
+
+        <a href="#entwicklung">
+          Entwicklung
+        </a>
 
         <a
           href="https://discord.gg/2WXJZtUFK"
@@ -1200,10 +1512,257 @@
         >
           Discord
         </a>
+
+        <button
+          class="menu-button"
+          id="menuButton"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+          <span
+            class="menu-icon"
+            aria-hidden="true"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+
+          <span class="menu-button-label">
+            Mehr
+          </span>
+        </button>
+
       </nav>
 
     </div>
   </header>
+
+
+  <!-- =========================
+       EXPANDABLE MENU
+  ========================== -->
+
+  <div
+    class="menu-overlay"
+    id="menuOverlay"
+    aria-hidden="true"
+  >
+
+    <aside
+      class="menu-panel"
+      aria-label="Zusätzliche Navigation"
+    >
+
+      <div class="menu-panel-heading">
+
+        <span>
+          LeitstellenDispo
+        </span>
+
+        <h2>
+          Mehr entdecken.
+        </h2>
+
+      </div>
+
+
+      <!-- NAVIGATION -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span>
+            Navigation
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="#projekt">
+                Startseite
+              </a>
+
+              <a href="#features">
+                Funktionen
+              </a>
+
+              <a href="#entwicklung">
+                Entwicklung
+              </a>
+
+              <a href="#projekt">
+                Über das Projekt
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- COMMUNITY -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span>
+            Community
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a
+                href="https://discord.gg/2WXJZtUFK"
+                target="_blank"
+                rel="noopener"
+              >
+                Discord
+              </a>
+
+              <a href="mailto:feedback@leitstellendispo.de">
+                Feedback
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- KONTAKT -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span>
+            Kontakt
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="mailto:kontakt@leitstellendispo.de">
+                Fragen?
+              </a>
+
+              <a href="mailto:team@leitstellendispo.de">
+                Team beitreten
+              </a>
+
+              <a href="mailto:kooperation@leitstellendispo.de">
+                Kooperationen
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RECHTLICHES -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span>
+            Rechtliches
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="/impressum.html">
+                Impressum
+              </a>
+
+              <a href="/datenschutz.html">
+                Datenschutz
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="menu-footer">
+        LeitstellenDispo · v0.1.0-alpha
+      </div>
+
+    </aside>
+
+  </div>
 
 
   <main>
@@ -1212,7 +1771,10 @@
          HERO
     ========================== -->
 
-    <section class="hero" id="projekt">
+    <section
+      class="hero"
+      id="projekt"
+    >
 
       <div class="container">
 
@@ -1225,7 +1787,9 @@
           <h1>
             Deine Leitstelle.
             <br>
-            <span>Deine Entscheidungen.</span>
+            <span>
+              Deine Entscheidungen.
+            </span>
           </h1>
 
           <p class="hero-text">
@@ -1442,8 +2006,15 @@
             <div class="map">
 
               <div class="map-ui">
-                <span>KARTE</span>
-                <span>SATELLIT</span>
+
+                <span>
+                  KARTE
+                </span>
+
+                <span>
+                  SATELLIT
+                </span>
+
               </div>
 
               <div class="map-road road-one"></div>
@@ -1855,7 +2426,7 @@
 
       <div class="footer-links">
 
-        <a href="#">
+        <a href="#projekt">
           Über das Projekt
         </a>
 
@@ -1880,6 +2451,148 @@
     </div>
 
   </footer>
+
+
+  <!-- =========================
+       MENU JAVASCRIPT
+  ========================== -->
+
+  <script>
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const menuOverlay =
+      document.getElementById("menuOverlay");
+
+
+    function setMenu(open) {
+
+      menuOverlay.classList.toggle(
+        "open",
+        open
+      );
+
+      menuButton.classList.toggle(
+        "open",
+        open
+      );
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        open
+          ? "Menü schließen"
+          : "Menü öffnen"
+      );
+
+      menuOverlay.setAttribute(
+        "aria-hidden",
+        String(!open)
+      );
+
+      document.body.classList.toggle(
+        "menu-open",
+        open
+      );
+    }
+
+
+    /* Menü öffnen / schließen */
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        setMenu(
+          !menuOverlay.classList.contains("open")
+        );
+
+      }
+    );
+
+
+    /* Klick auf dunklen Hintergrund */
+
+    menuOverlay.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === menuOverlay
+        ) {
+
+          setMenu(false);
+
+        }
+
+      }
+    );
+
+
+    /* Aufklappbare Karten */
+
+    document
+      .querySelectorAll(".menu-card-toggle")
+      .forEach((toggle) => {
+
+        toggle.addEventListener(
+          "click",
+          () => {
+
+            const card =
+              toggle.closest(".menu-card");
+
+            const isOpen =
+              card.classList.toggle("open");
+
+            toggle.setAttribute(
+              "aria-expanded",
+              String(isOpen)
+            );
+
+          }
+        );
+
+      });
+
+
+    /* Menü nach Link-Klick schließen */
+
+    document
+      .querySelectorAll(".menu-links a")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            setMenu(false);
+
+          }
+        );
+
+      });
+
+
+    /* ESC schließt das Menü */
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (event.key === "Escape") {
+
+          setMenu(false);
+
+        }
+
+      }
+    );
+  </script>
 
 </body>
 </html>
