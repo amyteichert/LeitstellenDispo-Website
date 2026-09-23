@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LeitstellenDispo</title>
+  <title>LeitstellenDispo – Deine Leitstelle. Deine Entscheidungen.</title>
 
   <meta
     name="description"
-    content="LeitstellenDispo – baue deine eigene Leitstelle auf, verwalte Wachen, Fahrzeuge und Personal und koordiniere Einsätze."
+    content="LeitstellenDispo – eine moderne Leitstellen-Simulation. Verwalte Wachen und Fahrzeuge, koordiniere Einsätze und baue dein Einsatzgebiet aus."
   >
+  <meta name="theme-color" content="#090b0f">
 
   <style>
+    :root {
+      --bg: #090b0f;
+      --bg-soft: #0d1016;
+      --card: #11141a;
+      --card-hover: #151920;
+      --border: #252a33;
+      --border-soft: #1d2129;
+      --text: #f5f5f5;
+      --muted: #9da4af;
+      --muted-2: #6f7682;
+      --red: #ef3340;
+      --red-dark: #c92431;
+      --max: 1180px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,13 +36,20 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 80px;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #090b0f;
-      color: #f5f5f5;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--red);
+      color: white;
     }
 
     a {
@@ -34,20 +57,29 @@
       text-decoration: none;
     }
 
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 11, 15, 0.94);
-      border-bottom: 1px solid #242832;
-      backdrop-filter: blur(12px);
+      background: rgba(9, 11, 15, 0.82);
+      border-bottom: 1px solid rgba(37, 42, 51, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     nav {
-      max-width: 1200px;
-      margin: auto;
+      width: min(var(--max), calc(100% - 48px));
       min-height: 72px;
-      padding: 0 24px;
+      margin: auto;
 
       display: flex;
       align-items: center;
@@ -55,244 +87,628 @@
       gap: 30px;
     }
 
-    nav strong {
-      color: #ef3340;
-      font-size: 1.25rem;
-      letter-spacing: -0.5px;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.4px;
     }
 
-    nav div {
+    .brand-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+
+      box-shadow: 0 0 18px rgba(239, 51, 64, 0.65);
+    }
+
+    nav .links {
       display: flex;
-      gap: 25px;
+      align-items: center;
+      gap: 28px;
     }
 
-    nav a {
+    nav .links a {
       color: #b9bec8;
-      font-size: 0.92rem;
-      transition: 0.2s;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
     }
 
-    nav a:hover {
+    nav .links a:hover {
       color: white;
     }
 
-    main > section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 100px 24px;
+    .nav-discord {
+      padding: 9px 14px;
+
+      border: 1px solid #343944;
+      border-radius: 7px;
+
+      color: white !important;
     }
 
-    /* HERO */
+    .nav-discord:hover {
+      border-color: var(--red);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     #start {
-      max-width: none;
-      min-height: 82vh;
-      padding: 130px max(24px, calc((100% - 1152px) / 2));
+      position: relative;
+
+      min-height: calc(100vh - 72px);
 
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
+
+      padding: 110px 0 120px;
+
+      overflow: hidden;
 
       background:
         radial-gradient(
-          circle at 75% 40%,
-          rgba(239, 51, 64, 0.14),
-          transparent 35%
+          circle at 78% 42%,
+          rgba(239, 51, 64, 0.16),
+          transparent 31%
         ),
-        linear-gradient(180deg, #0d1016 0%, #090b0f 100%);
+        radial-gradient(
+          circle at 58% 75%,
+          rgba(239, 51, 64, 0.05),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #0d1016 0%,
+          #090b0f 100%
+        );
     }
 
-    #start > p:first-child,
-    #entwicklung > p:first-child {
-      color: #ef3340;
-      font-weight: bold;
-      letter-spacing: 3px;
-      font-size: 0.78rem;
-      margin-bottom: 15px;
+    #start::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px
+        );
+
+      background-size: 44px 44px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+
+      max-width: 850px;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--red);
+
+      font-weight: 800;
+      letter-spacing: 2.8px;
+      font-size: 0.72rem;
+
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .section-label::before {
+      content: "";
+
+      width: 22px;
+      height: 2px;
+
+      background: var(--red);
     }
 
     h1 {
       max-width: 850px;
-      font-size: clamp(3rem, 8vw, 6.3rem);
-      line-height: 0.98;
-      letter-spacing: -4px;
-      margin-bottom: 28px;
+
+      margin: 22px 0 28px;
+
+      font-size: clamp(3.4rem, 8vw, 6.8rem);
+
+      line-height: 0.94;
+
+      letter-spacing: -5px;
     }
 
-    #start > p:nth-of-type(2) {
+    .accent {
+      color: var(--red);
+    }
+
+    .hero-text {
       max-width: 650px;
+
       color: #aeb4bf;
-      font-size: 1.08rem;
-      margin-bottom: 35px;
+
+      font-size: clamp(1rem, 2vw, 1.12rem);
+
+      line-height: 1.75;
+
+      margin-bottom: 34px;
     }
 
-    #start > a,
-    #community a {
-      display: inline-block;
-      width: fit-content;
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
 
-      padding: 13px 22px;
-      margin-right: 10px;
-      margin-bottom: 10px;
+    .button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding: 0 20px;
 
       border-radius: 8px;
       border: 1px solid #343944;
 
-      font-weight: bold;
-      transition: 0.2s;
+      font-weight: 800;
+      font-size: 0.92rem;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        filter 0.2s ease;
     }
 
-    #start > a:first-of-type,
-    #community a {
-      background: #ef3340;
-      border-color: #ef3340;
+    .button.primary {
+      background: var(--red);
+      border-color: var(--red);
     }
 
-    #start > a:hover,
-    #community a:hover {
+    .button.secondary {
+      background: rgba(17, 20, 26, 0.7);
+    }
+
+    .button:hover {
       transform: translateY(-2px);
-      filter: brightness(1.1);
+      filter: brightness(1.08);
     }
 
-    /* FEATURES */
+    .hero-status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-top: 42px;
+
+      color: var(--muted-2);
+
+      font-size: 0.82rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: #45c96b;
+
+      box-shadow:
+        0 0 12px rgba(69, 201, 107, 0.55);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section:not(#start) {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      margin-top: 15px;
+
+      font-size: clamp(2.25rem, 5vw, 4rem);
+
+      line-height: 1.02;
+
+      letter-spacing: -3px;
+    }
+
+    .section-intro {
+      margin-top: 18px;
+
+      max-width: 650px;
+
+      color: var(--muted);
+    }
+
+    /* =========================
+       FEATURES
+    ========================= */
 
     #features {
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
     }
 
-    #features h2 {
-      grid-column: 1 / -1;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      margin-bottom: 25px;
-      letter-spacing: -2px;
-    }
+    .feature-card {
+      position: relative;
 
-    article {
-      min-height: 210px;
-      padding: 25px;
+      min-height: 235px;
 
-      background: #11141a;
-      border: 1px solid #252a33;
+      padding: 27px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
       border-radius: 14px;
 
-      transition: 0.2s;
+      overflow: hidden;
+
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
     }
 
-    article:hover {
-      transform: translateY(-4px);
-      border-color: #ef3340;
-    }
+    .feature-card::after {
+      content: "";
 
-    article h3 {
-      margin-bottom: 14px;
-      font-size: 1.15rem;
-    }
+      position: absolute;
 
-    article p {
-      color: #9da4af;
-      font-size: 0.93rem;
-    }
+      width: 90px;
+      height: 90px;
 
-    /* ENTWICKLUNG */
+      right: -35px;
+      bottom: -35px;
 
-    #entwicklung {
-      border-top: 1px solid #1d2129;
-    }
-
-    #entwicklung h2,
-    #community h2 {
-      max-width: 750px;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
-
-    #entwicklung > p:last-child,
-    #community p {
-      max-width: 650px;
-      color: #9da4af;
-    }
-
-    /* COMMUNITY */
-
-    #community {
-      margin-bottom: 80px;
-      padding: 60px 45px;
+      border-radius: 50%;
 
       background:
+        rgba(239, 51, 64, 0.07);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(239, 51, 64, 0.6);
+
+      background:
+        var(--card-hover);
+    }
+
+    .feature-number {
+      color: var(--red);
+
+      font-size: 0.72rem;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+    }
+
+    .feature-card h3 {
+      margin: 35px 0 11px;
+
+      font-size: 1.2rem;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+
+      font-size: 0.92rem;
+    }
+
+    /* =========================
+       DEVELOPMENT
+    ========================= */
+
+    #entwicklung {
+      border-top: 1px solid var(--border-soft);
+
+      background:
+        var(--bg-soft);
+    }
+
+    .development-layout {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      gap: 60px;
+
+      align-items: start;
+    }
+
+    .development-copy p {
+      max-width: 650px;
+
+      color: var(--muted);
+    }
+
+    .roadmap {
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .roadmap-item {
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 17px 18px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--card);
+
+      border-radius: 10px;
+    }
+
+    .roadmap-icon {
+      width: 9px;
+      height: 9px;
+
+      flex: 0 0 9px;
+
+      border-radius: 50%;
+
+      background: #454b56;
+    }
+
+    .roadmap-item.active .roadmap-icon {
+      background: var(--red);
+
+      box-shadow:
+        0 0 12px rgba(239, 51, 64, 0.55);
+    }
+
+    .roadmap-item span {
+      color: #c5cad2;
+
+      font-size: 0.92rem;
+    }
+
+    .roadmap-item small {
+      display: block;
+
+      color: var(--muted-2);
+
+      font-size: 0.72rem;
+
+      margin-top: 2px;
+    }
+
+    /* =========================
+       COMMUNITY
+    ========================= */
+
+    #community {
+      padding-bottom: 125px;
+    }
+
+    .community-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 65px;
+
+      border:
+        1px solid #292e38;
+
+      border-radius: 18px;
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(239, 51, 64, 0.16),
+          transparent 28%
+        ),
         linear-gradient(
           135deg,
-          rgba(239, 51, 64, 0.12),
+          rgba(239, 51, 64, 0.1),
           transparent 60%
         ),
-        #11141a;
-
-      border: 1px solid #292e38;
-      border-radius: 18px;
+        var(--card);
     }
 
-    #community p {
-      margin-bottom: 28px;
+    .community-box p {
+      max-width: 650px;
+
+      color: var(--muted);
+
+      margin: 18px 0 28px;
     }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      padding: 30px 24px;
-      text-align: center;
-      color: #6f7682;
-      border-top: 1px solid #1d2129;
-      font-size: 0.85rem;
+      border-top: 1px solid var(--border-soft);
+
+      padding: 28px 0;
+
+      color: var(--muted-2);
+
+      font-size: 0.82rem;
     }
 
-    /* HANDY */
+    .footer-inner {
+      display: flex;
 
-    @media (max-width: 850px) {
-      nav {
-        min-height: 64px;
-      }
+      align-items: center;
 
-      nav div {
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: #b9bec8;
+
+      font-weight: 700;
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav .links {
         display: none;
       }
 
-      #start {
-        min-height: 78vh;
-        padding-top: 100px;
-        padding-bottom: 100px;
+      .feature-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .development-layout {
+        grid-template-columns:
+          1fr;
+
+        gap: 40px;
       }
 
       h1 {
-        letter-spacing: -2.5px;
-      }
-
-      #features {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      main > section {
-        padding-top: 75px;
-        padding-bottom: 75px;
+        letter-spacing: -3px;
       }
     }
 
-    @media (max-width: 520px) {
-      #features {
-        grid-template-columns: 1fr;
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .container,
+      nav {
+        width:
+          min(
+            100% - 32px,
+            var(--max)
+          );
       }
 
-      #community {
-        margin-left: 16px;
-        margin-right: 16px;
-        padding: 38px 25px;
+      #start {
+        min-height: auto;
+
+        padding:
+          92px 0 90px;
       }
 
-      #start > a {
-        display: block;
-        text-align: center;
+      section:not(#start) {
+        padding:
+          78px 0;
+      }
+
+      h1 {
+        font-size:
+          clamp(
+            3.15rem,
+            16vw,
+            5rem
+          );
+
+        letter-spacing: -3px;
+      }
+
+      .hero-text {
+        line-height: 1.65;
+      }
+
+      .actions {
+        display: grid;
+      }
+
+      .button {
         width: 100%;
-        margin-right: 0;
+      }
+
+      .hero-status {
+        margin-top: 30px;
+      }
+
+      .feature-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .feature-card {
+        min-height: 195px;
+      }
+
+      .community-box {
+        padding:
+          38px 25px;
+      }
+
+      h2 {
+        letter-spacing: -2px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items:
+          flex-start;
       }
     }
   </style>
@@ -300,110 +716,395 @@
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
     <nav>
-      <strong>LeitstellenDispo</strong>
 
-      <div>
-        <a href="#start">Start</a>
-        <a href="#features">Features</a>
-        <a href="#entwicklung">Entwicklung</a>
-        <a href="#community">Community</a>
+      <a
+        class="brand"
+        href="#start"
+        aria-label="LeitstellenDispo Startseite"
+      >
+        <span class="brand-mark"></span>
+        LeitstellenDispo
+      </a>
+
+      <div class="links">
+
+        <a href="#start">
+          Start
+        </a>
+
+        <a href="#features">
+          Features
+        </a>
+
+        <a href="#entwicklung">
+          Entwicklung
+        </a>
+
+        <a href="#community">
+          Community
+        </a>
+
+        <a
+          class="nav-discord"
+          href="https://discord.gg/2WXJZtUFK"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discord
+        </a>
+
       </div>
+
     </nav>
   </header>
 
+
   <main>
 
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <section id="start">
-      <p>LEITSTELLEN-SIMULATION</p>
 
-      <h1>
-        Deine Leitstelle.<br>
-        Deine Entscheidungen.
-      </h1>
+      <div class="container hero-content">
 
-      <p>
-        Übernimm die Kontrolle über deine eigene Leitstelle,
-        koordiniere Einsätze und baue dein Einsatzgebiet Schritt
-        für Schritt aus.
-      </p>
+        <span class="eyebrow">
+          Leitstellen-Simulation
+        </span>
 
-      <a href="#entwicklung">Mehr erfahren</a>
-      <a
-        href="https://discord.gg/2WXJZtUFK"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Discord beitreten
-      </a>
+        <h1>
+          Deine Leitstelle.<br>
+          <span class="accent">
+            Deine Entscheidungen.
+          </span>
+        </h1>
+
+        <p class="hero-text">
+          Übernimm die Kontrolle über deine eigene Leitstelle,
+          koordiniere Einsätze und baue dein Einsatzgebiet Schritt
+          für Schritt aus.
+        </p>
+
+        <div class="actions">
+
+          <a
+            class="button primary"
+            href="#features"
+          >
+            LeitstellenDispo entdecken
+          </a>
+
+          <a
+            class="button secondary"
+            href="https://discord.gg/2WXJZtUFK"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discord beitreten
+          </a>
+
+        </div>
+
+        <div class="hero-status">
+
+          <span class="status-dot"></span>
+
+          Aktive Entwicklung
+
+        </div>
+
+      </div>
+
     </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
 
     <section id="features">
-      <h2>Deine Leitstelle wächst mit dir.</h2>
 
-      <article>
-        <h3>🚨 Einsätze</h3>
-        <p>
-          Alarmiere passende Einheiten und behalte laufende Einsätze im Blick.
-        </p>
-      </article>
+      <div class="container">
 
-      <article>
-        <h3>🚒 Fuhrpark</h3>
-        <p>
-          Kaufe Fahrzeuge und stelle deinen eigenen Fuhrpark zusammen.
-        </p>
-      </article>
+        <div class="section-heading">
 
-      <article>
-        <h3>🏢 Wachen</h3>
-        <p>
-          Kaufe und erweitere Wachen und erschließe neue Standorte.
-        </p>
-      </article>
+          <span class="section-label">
+            Das erwartet dich
+          </span>
 
-      <article>
-        <h3>👥 Personal</h3>
-        <p>
-          Verwalte Einsatzkräfte und bilde dein Personal für neue Aufgaben aus.
-        </p>
-      </article>
+          <h2>
+            Deine Leitstelle wächst mit dir.
+          </h2>
+
+          <p class="section-intro">
+            Plane deinen Ausbau, behalte deine Einheiten im Blick
+            und triff die Entscheidungen, die deinen Leitstellenalltag
+            bestimmen.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <article class="feature-card">
+
+            <span class="feature-number">
+              01 / EINSÄTZE
+            </span>
+
+            <h3>
+              Einsätze koordinieren
+            </h3>
+
+            <p>
+              Alarmiere passende Einheiten und behalte laufende
+              Einsätze jederzeit im Blick.
+            </p>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <span class="feature-number">
+              02 / FUHRPARK
+            </span>
+
+            <h3>
+              Fuhrpark aufbauen
+            </h3>
+
+            <p>
+              Stelle deinen eigenen Fuhrpark zusammen und entscheide,
+              welche Fahrzeuge du für deine Leitstelle benötigst.
+            </p>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <span class="feature-number">
+              03 / WACHEN
+            </span>
+
+            <h3>
+              Wachen erweitern
+            </h3>
+
+            <p>
+              Erschließe neue Standorte und entwickle dein Einsatzgebiet
+              Schritt für Schritt weiter.
+            </p>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <span class="feature-number">
+              04 / PERSONAL
+            </span>
+
+            <h3>
+              Personal verwalten
+            </h3>
+
+            <p>
+              Verwalte Einsatzkräfte und entwickle dein Personal für
+              unterschiedliche Aufgaben weiter.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
     </section>
+
+
+    <!-- =========================
+         ENTWICKLUNG
+    ========================= -->
 
     <section id="entwicklung">
-      <p>IN ENTWICKLUNG</p>
 
-      <h2>LeitstellenDispo entsteht gerade.</h2>
+      <div class="container development-layout">
 
-      <p>
-        Das Spiel befindet sich aktuell in aktiver Entwicklung.
-        Neue Funktionen, Fahrzeuge, Einsätze und weitere Inhalte
-        kommen Schritt für Schritt hinzu.
-      </p>
+        <div class="development-copy">
+
+          <span class="section-label">
+            Entwicklung
+          </span>
+
+          <h2>
+            LeitstellenDispo entsteht gerade.
+          </h2>
+
+          <p>
+            LeitstellenDispo befindet sich aktuell in aktiver
+            Entwicklung. Neue Funktionen, Fahrzeuge, Einsätze
+            und weitere Inhalte werden Schritt für Schritt ergänzt.
+          </p>
+
+        </div>
+
+
+        <div
+          class="roadmap"
+          aria-label="Entwicklungsübersicht"
+        >
+
+          <div class="roadmap-item active">
+
+            <span class="roadmap-icon"></span>
+
+            <div>
+
+              <span>
+                Grundsystem &amp; Oberfläche
+              </span>
+
+              <small>
+                Aktive Entwicklung
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="roadmap-item">
+
+            <span class="roadmap-icon"></span>
+
+            <div>
+
+              <span>
+                Weitere Leitstellen-Funktionen
+              </span>
+
+              <small>
+                Geplant
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="roadmap-item">
+
+            <span class="roadmap-icon"></span>
+
+            <div>
+
+              <span>
+                Mehr Fahrzeuge &amp; Einsätze
+              </span>
+
+              <small>
+                Geplant
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="roadmap-item">
+
+            <span class="roadmap-icon"></span>
+
+            <div>
+
+              <span>
+                Weitere Inhalte &amp; Erweiterungen
+              </span>
+
+              <small>
+                Geplant
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
+
+    <!-- =========================
+         COMMUNITY
+    ========================= -->
+
     <section id="community">
-      <h2>Werde Teil der Community.</h2>
 
-      <p>
-        Verfolge die Entwicklung, teile Feedback und erfahre als
-        Erstes von neuen Funktionen und Testphasen.
-      </p>
+      <div class="container">
 
-      <a
-        href="https://discord.gg/2WXJZtUFK"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Zum Discord
-      </a>
+        <div class="community-box">
+
+          <span class="section-label">
+            Community
+          </span>
+
+          <h2>
+            Werde Teil der Entwicklung.
+          </h2>
+
+          <p>
+            Verfolge den Fortschritt, teile Feedback und erfahre
+            als Erstes von neuen Funktionen und Testphasen.
+          </p>
+
+          <a
+            class="button primary"
+            href="https://discord.gg/2WXJZtUFK"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zum Discord
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
 
   </main>
 
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
-    <p>© 2026 LeitstellenDispo</p>
+
+    <div class="container footer-inner">
+
+      <span class="footer-brand">
+        LeitstellenDispo
+      </span>
+
+      <span>
+        © 2026 LeitstellenDispo
+      </span>
+
+    </div>
+
   </footer>
 
 </body>
