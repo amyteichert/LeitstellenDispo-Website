@@ -1367,10 +1367,8 @@ footer {
 @media (max-width: 550px) {
 
   .container {
-    width: min(
-      calc(100% - 28px),
-      var(--max-width)
-    );
+    width: calc(100% - 28px);
+    max-width: var(--max-width);
   }
 
   header .nav {
@@ -1396,19 +1394,23 @@ footer {
   }
 
   .menu-panel {
+    width: 100%;
     padding: 78px 14px 22px;
   }
 
   .hero {
+    min-height: auto;
     padding: 75px 0 65px;
   }
 
+  /* Überschrift auf dem Handy kleiner */
   h1 {
-    font-size: clamp(
-      45px,
-      14vw,
-      70px
-    );
+    font-size: 52px;
+    line-height: 0.98;
+  }
+
+  .hero h1 span {
+    font-size: 0.86em;
   }
 
   .hero-text {
@@ -1429,7 +1431,6 @@ footer {
 
   .stat {
     min-height: 105px;
-
     padding: 20px 15px;
   }
 
@@ -1459,7 +1460,6 @@ footer {
 
   .roadmap-status {
     grid-column: 2;
-
     margin-top: -12px;
   }
 
@@ -1470,10 +1470,5 @@ footer {
 
   .footer-links {
     gap: 15px;
-  }
-  @media (max-width: 700px) {
-  .hero h1 {
-    font-size: clamp(2.4rem, 10vw, 3.4rem);
-    line-height: 1.05;
   }
 }
