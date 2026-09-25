@@ -1,1 +1,413 @@
-    
+    <!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Feedback – LeitstellenDispo</title>
+
+  <meta
+    name="description"
+    content="Feedback zu LeitstellenDispo."
+  >
+
+  <meta name="theme-color" content="#080a0d">
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="favicon.png.PNG"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="favicon.png.PNG"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================== -->
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+    <a
+      href="index.html"
+      class="brand"
+    >
+      LeitstellenDispo
+    </a>
+
+
+    <nav class="main-nav">
+
+      <a href="index.html">
+        Start
+      </a>
+
+      <a href="funktionen.html">
+        Funktionen
+      </a>
+
+      <a href="entwicklung.html">
+        Entwicklung
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Menü öffnen"
+      >
+        ☰
+      </button>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     MENU
+========================== -->
+
+<div
+  class="menu-overlay"
+  id="menuOverlay"
+></div>
+
+
+<aside
+  class="side-menu"
+  id="sideMenu"
+>
+
+  <div class="side-menu-header">
+
+    <button
+      class="menu-back"
+      id="menuBack"
+    >
+      ← Zurück
+    </button>
+
+    <h2>
+      Mehr entdecken
+    </h2>
+
+  </div>
+
+
+  <div class="menu-group">
+
+    <button class="menu-group-title">
+      Navigation
+      <span>+</span>
+    </button>
+
+    <div class="menu-group-content">
+
+      <a href="index.html">
+        Startseite
+      </a>
+
+      <a href="funktionen.html">
+        Funktionen
+      </a>
+
+      <a href="entwicklung.html">
+        Entwicklung
+      </a>
+
+      <a href="ueber-das-projekt.html">
+        Über das Projekt
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="menu-group">
+
+    <button class="menu-group-title">
+      Community
+      <span>+</span>
+    </button>
+
+    <div class="menu-group-content">
+
+      <a href="community.html">
+        Discord
+      </a>
+
+      <a href="feedback.html">
+        Feedback
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="menu-group">
+
+    <button class="menu-group-title">
+      Kontakt
+      <span>+</span>
+    </button>
+
+    <div class="menu-group-content">
+
+      <a href="fragen.html">
+        Fragen?
+      </a>
+
+      <a href="team.html">
+        Team beitreten
+      </a>
+
+      <a href="kooperationen.html">
+        Kooperationen
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="menu-group">
+
+    <button class="menu-group-title">
+      Rechtliches
+      <span>+</span>
+    </button>
+
+    <div class="menu-group-content">
+
+      <a href="impressum.html">
+        Impressum
+      </a>
+
+      <a href="datenschutz.html">
+        Datenschutz
+      </a>
+
+    </div>
+
+  </div>
+
+</aside>
+
+
+
+<!-- =========================
+     CONTENT
+========================== -->
+
+<main>
+
+
+<section class="hero">
+
+  <div class="container hero-content">
+
+    <div class="section-kicker">
+      FEEDBACK
+    </div>
+
+    <h1>
+      Deine Meinung zählt.
+    </h1>
+
+    <p>
+      Hier kannst du Feedback, Ideen und Verbesserungsvorschläge
+      für LeitstellenDispo loswerden.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="container">
+
+    <div class="community-box">
+
+      <h2>
+        Feedback senden
+      </h2>
+
+      <p>
+        Du hast einen Vorschlag, eine Idee oder möchtest uns
+        auf etwas aufmerksam machen?
+      </p>
+
+      <a
+        href="mailto:info@leitstellendispo.de"
+        class="button button-primary"
+      >
+        Feedback senden
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="site-footer">
+
+  <div class="container footer-inner">
+
+    <div>
+      © 2026 LeitstellenDispo
+    </div>
+
+    <div class="footer-links">
+
+      <a href="ueber-das-projekt.html">
+        Über das Projekt
+      </a>
+
+      <a href="community.html">
+        Discord
+      </a>
+
+      <a href="impressum.html">
+        Impressum
+      </a>
+
+      <a href="datenschutz.html">
+        Datenschutz
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script>
+
+const menuButton = document.getElementById("menuButton");
+const menuBack = document.getElementById("menuBack");
+const sideMenu = document.getElementById("sideMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+
+
+function openMenu() {
+
+  sideMenu.classList.add("open");
+  menuOverlay.classList.add("open");
+
+}
+
+
+function closeMenu() {
+
+  sideMenu.classList.remove("open");
+  menuOverlay.classList.remove("open");
+
+}
+
+
+menuButton.addEventListener(
+  "click",
+  openMenu
+);
+
+
+menuBack.addEventListener(
+  "click",
+  closeMenu
+);
+
+
+menuOverlay.addEventListener(
+  "click",
+  closeMenu
+);
+
+
+document
+  .querySelectorAll(".menu-group-title")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const group =
+          button.parentElement;
+
+        group.classList.toggle("open");
+
+      }
+    );
+
+  });
+
+
+document
+  .querySelectorAll(".side-menu a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      closeMenu
+    );
+
+  });
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+
+  }
+);
+
+</script>
+
+
+</body>
+
+</html>
