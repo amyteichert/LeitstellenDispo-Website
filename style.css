@@ -1,4 +1,4 @@
-    :root {
+:root {
   --bg: #080a0d;
   --bg-soft: #0d1015;
   --surface: #11151b;
@@ -9,7 +9,7 @@
   --muted: #969ca6;
 
   --red: #ef3340;
-  --red-soft: rgba(239, 51, 64, 0.12);
+  --red-soft: rgba(239,51,64,0.12);
 
   --green: #42d392;
 
@@ -30,7 +30,7 @@ body {
   background:
     radial-gradient(
       circle at 70% 0%,
-      rgba(239, 51, 64, 0.08),
+      rgba(239,51,64,0.08),
       transparent 28%
     ),
     var(--bg);
@@ -64,34 +64,39 @@ button {
   font: inherit;
 }
 
-.container {
-  width: min(
-    calc(100% - 40px),
-    var(--max-width)
-  );
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+}
 
+.container {
+  width: min(calc(100% - 40px), var(--max-width));
   margin: 0 auto;
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
-header {
+header,
+.site-header {
   position: sticky;
   top: 0;
   z-index: 100;
 
-  background: rgba(8, 10, 13, 0.78);
+  background: rgba(8,10,13,0.78);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
   border-bottom: 1px solid var(--border);
 }
 
-.nav {
-  height: 72px;
+.nav,
+.header-inner {
+  min-height: 72px;
 
   display: flex;
   align-items: center;
@@ -112,26 +117,36 @@ header {
   width: 9px;
   height: 9px;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
   background: var(--red);
 
   box-shadow:
-    0 0 18px rgba(239, 51, 64, 0.65);
+    0 0 18px rgba(239,51,64,0.65);
 }
 
-nav {
+nav,
+.main-nav {
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-nav a {
+.main-nav {
+  gap: 26px;
+}
+
+nav a,
+.main-nav a {
   color: var(--muted);
   font-size: 14px;
+
   transition: color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+.main-nav a:hover {
   color: var(--text);
 }
 
@@ -141,18 +156,17 @@ nav a:hover {
   border: 1px solid var(--border);
   border-radius: 8px;
 
-  color: var(--text);
+  color: var(--text) !important;
 }
 
 .nav-discord:hover {
-  border-color: rgba(239, 51, 64, 0.4);
-  color: var(--text);
+  border-color: rgba(239,51,64,0.4);
 }
 
 
-/* =========================
+/* =========================================================
    MENU BUTTON
-========================= */
+========================================================= */
 
 .menu-button {
   display: inline-flex;
@@ -219,9 +233,9 @@ nav a:hover {
 }
 
 
-/* =========================
-   MENU OVERLAY
-========================= */
+/* =========================================================
+   MODERN SIDE MENU
+========================================================= */
 
 .menu-overlay {
   position: fixed;
@@ -249,8 +263,9 @@ nav a:hover {
   pointer-events: auto;
 }
 
-.menu-panel {
-  width: min(430px, 100%);
+.menu-panel,
+.side-menu {
+  width: min(430px,100%);
   height: 100%;
 
   overflow-y: auto;
@@ -269,7 +284,9 @@ nav a:hover {
 
   box-shadow:
     -30px 0 80px rgba(0,0,0,0.35);
+}
 
+.menu-panel {
   transform: translateX(28px);
 
   transition:
@@ -280,7 +297,25 @@ nav a:hover {
   transform: translateX(0);
 }
 
-.menu-panel-heading {
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  z-index: 201;
+
+  transform: translateX(100%);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.menu-panel-heading,
+.side-menu-header {
   margin-bottom: 18px;
   padding: 0 4px;
 }
@@ -299,17 +334,54 @@ nav a:hover {
   text-transform: uppercase;
 }
 
-.menu-panel-heading h2 {
+.menu-panel-heading h2,
+.side-menu-header h2 {
+  margin-top: 10px;
+
   font-size: 30px;
   letter-spacing: -0.04em;
 }
 
 
-/* =========================
-   MENU CARDS
-========================= */
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
-.menu-card {
+.menu-back {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 40px;
+  padding: 0 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: rgba(255,255,255,0.025);
+  color: var(--text);
+
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.menu-back:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
+}
+
+
+/* =========================================================
+   OLD / NEW MENU GROUPS
+========================================================= */
+
+.menu-card,
+.menu-group {
   margin-top: 10px;
 
   overflow: hidden;
@@ -319,6 +391,9 @@ nav a:hover {
 
   background: rgba(255,255,255,0.018);
 }
+
+
+/* ----- card style ----- */
 
 .menu-card-toggle {
   width: 100%;
@@ -381,11 +456,72 @@ nav a:hover {
   grid-template-rows: 1fr;
 }
 
+
+/* ----- group style ----- */
+
+.menu-group-title {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--text);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.menu-group-title:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+.menu-group-title span {
+  color: #777d86;
+
+  font-size: 18px;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.menu-group.open .menu-group-title span {
+  color: var(--red);
+  transform: rotate(45deg);
+}
+
+.menu-group-content {
+  display: none;
+
+  padding: 0 10px 10px;
+}
+
+.menu-group.open .menu-group-content {
+  display: block;
+}
+
+
+/* =========================================================
+   MENU LINKS
+========================================================= */
+
 .menu-links {
   padding: 0 10px 10px;
 }
 
-.menu-links a {
+.menu-links a,
+.menu-group-content a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -405,12 +541,14 @@ nav a:hover {
     background 0.2s ease;
 }
 
-.menu-links a:hover {
+.menu-links a:hover,
+.menu-group-content a:hover {
   background: rgba(255,255,255,0.035);
   color: var(--text);
 }
 
-.menu-links a::after {
+.menu-links a::after,
+.menu-group-content a::after {
   content: "↗";
 
   color: #5f656e;
@@ -428,9 +566,86 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================================
+   GENERAL PAGE CONTENT
+========================================================= */
+
+main {
+  min-width: 0;
+}
+
+.page-hero {
+  padding: 110px 0 75px;
+}
+
+.page-hero .eyebrow {
+  margin-bottom: 20px;
+}
+
+.page-hero h1 {
+  max-width: 850px;
+}
+
+.page-intro {
+  max-width: 680px;
+
+  margin-top: 24px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+}
+
+.page-content {
+  padding: 70px 0 120px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+
+  gap: 18px;
+}
+
+.content-card {
+  padding: 30px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.018);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.content-card:hover {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.content-card h2,
+.content-card h3 {
+  letter-spacing: -0.03em;
+}
+
+.content-card h3 {
+  font-size: 22px;
+}
+
+.content-card p {
+  margin-top: 10px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
   position: relative;
@@ -488,7 +703,7 @@ nav a:hover {
   background:
     radial-gradient(
       circle,
-      rgba(239, 51, 64, 0.11),
+      rgba(239,51,64,0.11),
       transparent 65%
     );
 
@@ -522,21 +737,19 @@ nav a:hover {
   width: 7px;
   height: 7px;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
   background: var(--red);
 
   box-shadow:
-    0 0 12px rgba(239, 51, 64, 0.6);
+    0 0 12px rgba(239,51,64,0.6);
 }
 
 h1 {
   max-width: 900px;
 
-  font-size: clamp(
-    48px,
-    8vw,
-    94px
-  );
+  font-size: clamp(48px,8vw,94px);
 
   line-height: 0.96;
   letter-spacing: -0.055em;
@@ -555,11 +768,7 @@ h1 span {
 
   color: var(--muted);
 
-  font-size: clamp(
-    16px,
-    2vw,
-    19px
-  );
+  font-size: clamp(16px,2vw,19px);
 }
 
 .hero-actions {
@@ -569,6 +778,11 @@ h1 span {
 
   margin-top: 36px;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .button {
   display: inline-flex;
@@ -599,7 +813,7 @@ h1 span {
   color: white;
 
   box-shadow:
-    0 12px 35px rgba(239, 51, 64, 0.18);
+    0 12px 35px rgba(239,51,64,0.18);
 }
 
 .button-primary:hover {
@@ -617,9 +831,9 @@ h1 span {
 }
 
 
-/* =========================
-   PUBLIC STATS
-========================= */
+/* =========================================================
+   STATS
+========================================================= */
 
 .stats {
   border-top: 1px solid var(--border);
@@ -630,7 +844,7 @@ h1 span {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
 }
 
 .stat {
@@ -671,7 +885,7 @@ h1 span {
   background: var(--green);
 
   box-shadow:
-    0 0 13px rgba(66, 211, 146, 0.55);
+    0 0 13px rgba(66,211,146,0.55);
 }
 
 .stat-label {
@@ -694,9 +908,9 @@ h1 span {
 }
 
 
-/* =========================
+/* =========================================================
    SECTION BASICS
-========================= */
+========================================================= */
 
 section {
   padding: 120px 0;
@@ -705,6 +919,7 @@ section {
 .section-heading {
   display: flex;
   justify-content: space-between;
+
   gap: 40px;
 
   margin-bottom: 50px;
@@ -727,11 +942,7 @@ section {
 }
 
 h2 {
-  font-size: clamp(
-    34px,
-    5vw,
-    58px
-  );
+  font-size: clamp(34px,5vw,58px);
 
   line-height: 1;
   letter-spacing: -0.045em;
@@ -746,9 +957,9 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    CONTROL CENTER
-========================= */
+========================================================= */
 
 .control-center {
   position: relative;
@@ -897,9 +1108,9 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    MAP
-========================= */
+========================================================= */
 
 .map {
   position: relative;
@@ -1050,13 +1261,13 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    FEATURES
-========================= */
+========================================================= */
 
 .features {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
 
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
@@ -1114,9 +1325,9 @@ h2 {
 }
 
 
-/* =========================
-   DEVELOPMENT
-========================= */
+/* =========================================================
+   DEVELOPMENT / ROADMAP
+========================================================= */
 
 .development {
   background: var(--bg-soft);
@@ -1214,9 +1425,9 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    COMMUNITY
-========================= */
+========================================================= */
 
 .community-box {
   position: relative;
@@ -1253,9 +1464,9 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
   border-top: 1px solid var(--border);
@@ -1297,13 +1508,14 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media (max-width: 850px) {
 
-  nav a:not(.nav-discord) {
+  nav a:not(.nav-discord),
+  .main-nav a:not(.nav-discord) {
     display: none;
   }
 
@@ -1314,7 +1526,7 @@ footer {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
   }
 
   .stat:nth-child(2) {
@@ -1357,18 +1569,24 @@ footer {
   .community-box {
     padding: 45px 28px;
   }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 550px) {
+
   html,
   body {
     width: 100%;
     max-width: 100%;
+
     overflow-x: hidden;
   }
 
@@ -1377,15 +1595,9 @@ footer {
     max-width: none;
   }
 
-  img,
-  svg,
-  video,
-  iframe {
-    max-width: 100%;
-    height: auto;
-  }
-
-  header .nav {
+  header .nav,
+  .header-inner {
+    min-height: 64px;
     height: 64px;
   }
 
@@ -1401,7 +1613,9 @@ footer {
   .menu-button {
     width: 42px;
     min-height: 40px;
+
     padding: 0;
+
     flex-shrink: 0;
   }
 
@@ -1409,16 +1623,21 @@ footer {
     display: none;
   }
 
-  .menu-panel {
+  .menu-panel,
+  .side-menu {
     width: 100%;
     max-width: 100%;
+
     padding: 78px 14px 22px;
   }
 
   .hero {
     min-height: auto;
+
     padding: 75px 0 65px;
+
     width: 100%;
+
     overflow: hidden;
   }
 
@@ -1430,25 +1649,32 @@ footer {
   h1 {
     max-width: 100%;
     width: 100%;
-    font-size: clamp(40px, 12vw, 49px);
+
+    font-size: clamp(40px,12vw,49px);
+
     line-height: 0.98;
     letter-spacing: -0.045em;
+
     overflow-wrap: break-word;
   }
 
   .hero h1 span {
     display: inline;
+
     font-size: 0.78em;
   }
 
   .hero-text {
     max-width: 100%;
+
     font-size: 15px;
+
     overflow-wrap: break-word;
   }
 
   .hero-actions {
     width: 100%;
+
     flex-direction: column;
   }
 
@@ -1458,12 +1684,14 @@ footer {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
+
     width: 100%;
   }
 
   .stat {
     min-width: 0;
+
     padding: 20px 15px;
   }
 
@@ -1478,13 +1706,17 @@ footer {
 
   section {
     padding: 85px 0;
+
     width: 100%;
+
     overflow: hidden;
   }
 
   h2 {
     max-width: 100%;
+
     font-size: 39px;
+
     overflow-wrap: break-word;
   }
 
@@ -1503,32 +1735,53 @@ footer {
   .map {
     width: 100%;
     min-width: 0;
+
     min-height: 360px;
   }
 
   .community-box {
     width: 100%;
     max-width: 100%;
+
     padding: 40px 22px;
   }
 
   .roadmap-item {
-    grid-template-columns: 32px minmax(0, 1fr);
+    grid-template-columns: 32px minmax(0,1fr);
   }
 
   .roadmap-status {
     grid-column: 2;
+
     margin-top: -12px;
+  }
+
+  .page-hero {
+    padding: 75px 0 55px;
+  }
+
+  .page-intro {
+    font-size: 15px;
+  }
+
+  .page-content {
+    padding: 50px 0 85px;
+  }
+
+  .content-card {
+    padding: 23px;
   }
 
   .footer-inner {
     align-items: flex-start;
+
     flex-direction: column;
   }
 
   .footer-links {
     width: 100%;
     min-width: 0;
+
     gap: 15px;
   }
 
