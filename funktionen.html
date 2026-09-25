@@ -1,1 +1,998 @@
-    
+    <!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Funktionen – LeitstellenDispo</title>
+
+  <meta
+    name="description"
+    content="Entdecke die Funktionen von LeitstellenDispo: Einsätze, Fahrzeuge, Wachen und weitere Systeme."
+  >
+
+  <meta name="theme-color" content="#080a0d">
+
+  <link rel="icon" type="image/png" href="favicon.png.PNG">
+  <link rel="apple-touch-icon" href="favicon.png.PNG">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        LEITSTELLENDISPO
+      </a>
+
+      <nav>
+
+        <a href="index.html">
+          Startseite
+        </a>
+
+        <a href="funktionen.html">
+          Funktionen
+        </a>
+
+        <a href="entwicklung.html">
+          Entwicklung
+        </a>
+
+        <a
+          href="https://discord.gg/2WXJZtUFK"
+          target="_blank"
+          rel="noopener"
+          class="nav-discord"
+        >
+          Discord
+        </a>
+
+        <button
+          class="menu-button"
+          id="menuButton"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+          <span
+            class="menu-icon"
+            aria-hidden="true"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+
+          <span class="menu-button-label">
+            Mehr
+          </span>
+        </button>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       MENU
+  ========================== -->
+
+  <div
+    class="menu-overlay"
+    id="menuOverlay"
+    aria-hidden="true"
+  >
+
+    <aside
+      class="menu-panel"
+      aria-label="Zusätzliche Navigation"
+    >
+
+      <div class="menu-panel-heading">
+
+        <span>
+          LeitstellenDispo
+        </span>
+
+        <h2>
+          Mehr entdecken.
+        </h2>
+
+      </div>
+
+
+      <!-- NAVIGATION -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          <span>
+            Navigation
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="index.html">
+                Startseite
+              </a>
+
+              <a href="funktionen.html">
+                Funktionen
+              </a>
+
+              <a href="entwicklung.html">
+                Entwicklung
+              </a>
+
+              <a href="ueber-das-projekt.html">
+                Über das Projekt
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- COMMUNITY -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          <span>
+            Community
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a
+                href="https://discord.gg/2WXJZtUFK"
+                target="_blank"
+                rel="noopener"
+              >
+                Discord
+              </a>
+
+              <a href="mailto:info@leitstellendispo.de">
+                Feedback
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- KONTAKT -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          <span>
+            Kontakt
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="mailto:info@leitstellendispo.de">
+                Fragen?
+              </a>
+
+              <a href="mailto:kontakt@leitstellendispo.de">
+                Team beitreten
+              </a>
+
+              <a href="mailto:kontakt@leitstellendispo.de">
+                Kooperationen
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RECHTLICHES -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          <span>
+            Rechtliches
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="impressum.html">
+                Impressum
+              </a>
+
+              <a href="datenschutz.html">
+                Datenschutz
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="menu-footer">
+        LeitstellenDispo · v0.1.0-alpha
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Funktionen
+          </div>
+
+          <h1>
+            Deine Leitstelle.
+            <br>
+            <span>
+              Deine Möglichkeiten.
+            </span>
+          </h1>
+
+          <p class="hero-text">
+            LeitstellenDispo verbindet Einsätze, Fahrzeuge,
+            Wachen und weitere Systeme zu einer modernen
+            Leitstellen-Simulation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EINSÄTZE
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+
+            <div class="section-kicker">
+              01 · Einsätze
+            </div>
+
+            <h2>
+              Jeder Einsatz zählt.
+            </h2>
+
+          </div>
+
+          <p class="section-description">
+            Entscheide, welche Einheiten benötigt werden
+            und wie du auf die jeweilige Lage reagierst.
+          </p>
+
+        </div>
+
+
+        <div class="features">
+
+          <article class="feature">
+
+            <div class="feature-number">
+              01
+            </div>
+
+            <h3>
+              Einsatzlagen
+            </h3>
+
+            <p>
+              Von kleinen Hilfeleistungen bis hin zu
+              größeren Einsatzlagen mit mehreren
+              beteiligten Einheiten.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-number">
+              02
+            </div>
+
+            <h3>
+              Alarmierung
+            </h3>
+
+            <p>
+              Wähle passende Fahrzeuge aus und
+              alarmiere sie gezielt zu einem Einsatz.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-number">
+              03
+            </div>
+
+            <h3>
+              Einsatzverlauf
+            </h3>
+
+            <p>
+              Beobachte den Einsatz und behalte
+              deine verfügbaren Einheiten im Blick.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FUHRPARK
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+
+            <div class="section-kicker">
+              02 · Fuhrpark
+            </div>
+
+            <h2>
+              Dein Fuhrpark.
+            </h2>
+
+          </div>
+
+          <p class="section-description">
+            Stelle deine Fahrzeugflotte zusammen und
+            entscheide, welche Einheiten deiner
+            Leitstelle zur Verfügung stehen.
+          </p>
+
+        </div>
+
+
+        <div class="features">
+
+          <article class="feature">
+
+            <div class="feature-number">
+              01
+            </div>
+
+            <h3>
+              Feuerwehr
+            </h3>
+
+            <p>
+              Fahrzeuge wie LF, HLF und TLF bilden
+              die Grundlage für deine ersten
+              Feuerwehreinsätze.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-number">
+              02
+            </div>
+
+            <h3>
+              Rettungsdienst
+            </h3>
+
+            <p>
+              Rettungswagen und weitere Einheiten
+              für medizinische Einsatzlagen.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-number">
+              03
+            </div>
+
+            <h3>
+              Weitere Einheiten
+            </h3>
+
+            <p>
+              Polizei, THW und weitere
+              Organisationen sollen Schritt für
+              Schritt hinzukommen.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WACHEN
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+
+            <div class="section-kicker">
+              03 · Wachen
+            </div>
+
+            <h2>
+              Baue deine Infrastruktur.
+            </h2>
+
+          </div>
+
+          <p class="section-description">
+            Erweitere deine Leitstelle mit neuen
+            Standorten und verbessere deine
+            Einsatzmöglichkeiten.
+          </p>
+
+        </div>
+
+
+        <div class="features">
+
+          <article class="feature">
+
+            <div class="feature-number">
+              01
+            </div>
+
+            <h3>
+              Standorte
+            </h3>
+
+            <p>
+              Errichte neue Wachen und erweitere
+              dein Einsatzgebiet Schritt für Schritt.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-number">
+              02
+            </div>
+
+            <h3>
+              Fahrzeuge zuweisen
+            </h3>
+
+            <p>
+              Weise deinen Wachen Fahrzeuge zu
+              und stelle deine Infrastruktur sinnvoll auf.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-number">
+              03
+            </div>
+
+            <h3>
+              Ausbau
+            </h3>
+
+            <p>
+              Entwickle deine Wachen weiter und
+              schaffe neue Möglichkeiten für deine Leitstelle.
+            </p>
+
+            <div class="feature-line"></div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WEITERE FUNKTIONEN
+    ========================== -->
+
+    <section class="development">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+
+            <div class="section-kicker">
+              04 · Weitere Systeme
+            </div>
+
+            <h2>
+              Das kommt noch.
+            </h2>
+
+          </div>
+
+          <p class="section-description">
+            LeitstellenDispo soll mit der Zeit um
+            weitere Bereiche und Systeme erweitert werden.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap">
+
+          <div class="roadmap-item">
+
+            <div class="roadmap-dot">
+              01
+            </div>
+
+            <div class="roadmap-content">
+
+              <h3>
+                Polizei
+              </h3>
+
+              <p>
+                Polizeiliche Einsatzlagen und
+                entsprechende Fahrzeuge.
+              </p>
+
+            </div>
+
+            <div class="roadmap-status">
+              Geplant
+            </div>
+
+          </div>
+
+
+          <div class="roadmap-item">
+
+            <div class="roadmap-dot">
+              02
+            </div>
+
+            <div class="roadmap-content">
+
+              <h3>
+                THW
+              </h3>
+
+              <p>
+                Technische Hilfeleistungen und
+                spezialisierte Einheiten.
+              </p>
+
+            </div>
+
+            <div class="roadmap-status">
+              Geplant
+            </div>
+
+          </div>
+
+
+          <div class="roadmap-item">
+
+            <div class="roadmap-dot">
+              03
+            </div>
+
+            <div class="roadmap-content">
+
+              <h3>
+                Kliniken
+              </h3>
+
+              <p>
+                Medizinische Infrastruktur und
+                Patientenversorgung.
+              </p>
+
+            </div>
+
+            <div class="roadmap-status">
+              Geplant
+            </div>
+
+          </div>
+
+
+          <div class="roadmap-item">
+
+            <div class="roadmap-dot">
+              04
+            </div>
+
+            <div class="roadmap-content">
+
+              <h3>
+                Leitstellen
+              </h3>
+
+              <p>
+                Weitere Leitstellen und eine
+                umfangreichere Einsatzkoordination.
+              </p>
+
+            </div>
+
+            <div class="roadmap-status">
+              Geplant
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMMUNITY
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="community-box">
+
+          <div class="section-kicker">
+            Community
+          </div>
+
+          <h2>
+            Gemeinsam weiterentwickeln.
+          </h2>
+
+          <p>
+            Verfolge die Entwicklung von LeitstellenDispo
+            und tausche dich mit der Community aus.
+          </p>
+
+          <a
+            href="https://discord.gg/2WXJZtUFK"
+            target="_blank"
+            rel="noopener"
+            class="button button-primary"
+          >
+            Discord beitreten
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div class="footer-copy">
+        © 2026 LeitstellenDispo
+      </div>
+
+      <div class="footer-links">
+
+        <a href="ueber-das-projekt.html">
+          Über das Projekt
+        </a>
+
+        <a
+          href="https://discord.gg/2WXJZtUFK"
+          target="_blank"
+          rel="noopener"
+        >
+          Discord
+        </a>
+
+        <a href="impressum.html">
+          Impressum
+        </a>
+
+        <a href="datenschutz.html">
+          Datenschutz
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MENU JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const menuOverlay =
+      document.getElementById("menuOverlay");
+
+
+    function setMenu(open) {
+
+      menuOverlay.classList.toggle(
+        "open",
+        open
+      );
+
+      menuButton.classList.toggle(
+        "open",
+        open
+      );
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        open
+          ? "Menü schließen"
+          : "Menü öffnen"
+      );
+
+      menuOverlay.setAttribute(
+        "aria-hidden",
+        String(!open)
+      );
+
+      document.body.classList.toggle(
+        "menu-open",
+        open
+      );
+
+    }
+
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        setMenu(
+          !menuOverlay.classList.contains("open")
+        );
+
+      }
+    );
+
+
+    menuOverlay.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === menuOverlay
+        ) {
+
+          setMenu(false);
+
+        }
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".menu-card-toggle")
+      .forEach((toggle) => {
+
+        toggle.addEventListener(
+          "click",
+          () => {
+
+            const card =
+              toggle.closest(".menu-card");
+
+            const isOpen =
+              card.classList.toggle("open");
+
+            toggle.setAttribute(
+              "aria-expanded",
+              String(isOpen)
+            );
+
+          }
+        );
+
+      });
+
+
+    document
+      .querySelectorAll(".menu-links a")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            setMenu(false);
+
+          }
+        );
+
+      });
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (event.key === "Escape") {
+
+          setMenu(false);
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
