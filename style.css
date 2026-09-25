@@ -1365,10 +1365,24 @@ footer {
 ========================= */
 
 @media (max-width: 550px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
   .container {
     width: calc(100% - 28px);
-    max-width: var(--max-width);
+    max-width: none;
+  }
+
+  img,
+  svg,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
   }
 
   header .nav {
@@ -1377,6 +1391,7 @@ footer {
 
   .brand {
     font-size: 13px;
+    min-width: 0;
   }
 
   .nav-discord {
@@ -1387,6 +1402,7 @@ footer {
     width: 42px;
     min-height: 40px;
     padding: 0;
+    flex-shrink: 0;
   }
 
   .menu-button-label {
@@ -1395,42 +1411,59 @@ footer {
 
   .menu-panel {
     width: 100%;
+    max-width: 100%;
     padding: 78px 14px 22px;
   }
 
   .hero {
     min-height: auto;
     padding: 75px 0 65px;
+    width: 100%;
+    overflow: hidden;
   }
 
-  /* Überschrift auf dem Handy kleiner */
+  .hero-content {
+    min-width: 0;
+    width: 100%;
+  }
+
   h1 {
-    font-size: 52px;
+    max-width: 100%;
+    width: 100%;
+    font-size: clamp(40px, 12vw, 49px);
     line-height: 0.98;
+    letter-spacing: -0.045em;
+    overflow-wrap: break-word;
   }
 
   .hero h1 span {
-    font-size: 0.86em;
+    display: inline;
+    font-size: 0.78em;
   }
 
   .hero-text {
+    max-width: 100%;
     font-size: 15px;
+    overflow-wrap: break-word;
   }
 
   .hero-actions {
+    width: 100%;
     flex-direction: column;
   }
 
   .button {
     width: 100%;
+    max-width: 100%;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
   }
 
   .stat {
-    min-height: 105px;
+    min-width: 0;
     padding: 20px 15px;
   }
 
@@ -1438,24 +1471,49 @@ footer {
     font-size: 23px;
   }
 
+  .stat-label,
+  .stat-note {
+    overflow-wrap: anywhere;
+  }
+
   section {
     padding: 85px 0;
+    width: 100%;
+    overflow: hidden;
   }
 
   h2 {
+    max-width: 100%;
     font-size: 39px;
+    overflow-wrap: break-word;
+  }
+
+  .section-heading,
+  .section-title,
+  .section-description {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .dashboard {
+    width: 100%;
+    min-width: 0;
   }
 
   .map {
+    width: 100%;
+    min-width: 0;
     min-height: 360px;
   }
 
   .community-box {
+    width: 100%;
+    max-width: 100%;
     padding: 40px 22px;
   }
 
   .roadmap-item {
-    grid-template-columns: 32px 1fr;
+    grid-template-columns: 32px minmax(0, 1fr);
   }
 
   .roadmap-status {
@@ -1469,10 +1527,12 @@ footer {
   }
 
   .footer-links {
+    width: 100%;
+    min-width: 0;
     gap: 15px;
   }
-  
-    .hero h1 span {
-    font-size: 0.82em;
+
+  .footer-links a {
+    overflow-wrap: anywhere;
   }
 }
