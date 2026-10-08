@@ -1846,3 +1846,25 @@ footer {
     overflow-wrap: anywhere;
   }
 }
+
+/* =========================================================
+   JETZT SPIELEN (Link zum Spiel in der Navigation)
+========================================================= */
+
+.nav-spielen {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff !important;
+}
+
+.nav-spielen:hover {
+  background: #d62a36;
+  border-color: #d62a36;
+}
+
+/* Auf kleinen Bildschirmen bleibt „Jetzt spielen“ sichtbar (Discord nicht) */
+@media (max-width: 550px) {
+  .nav-discord.nav-spielen {
+    display: inline-flex;
+  }
+}
