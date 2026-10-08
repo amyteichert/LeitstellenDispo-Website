@@ -8,8 +8,8 @@
   --text: #f4f5f7;
   --muted: #969ca6;
 
-  --red: #6366f1;
-  --red-soft: rgba(99,102,241,0.12);
+  --red: #2563eb;
+  --red-soft: rgba(37,99,235,0.12);
 
   --green: #42d392;
 
@@ -30,7 +30,7 @@ body {
   background:
     radial-gradient(
       circle at 70% 0%,
-      rgba(99,102,241,0.08),
+      rgba(37,99,235,0.08),
       transparent 28%
     ),
     var(--bg);
@@ -123,7 +123,7 @@ header,
   background: var(--red);
 
   box-shadow:
-    0 0 18px rgba(99,102,241,0.65);
+    0 0 18px rgba(37,99,235,0.65);
 }
 
 nav,
@@ -161,7 +161,7 @@ nav a[aria-current="page"] {
 }
 
 .nav-discord:hover {
-  border-color: rgba(99,102,241,0.4);
+  border-color: rgba(37,99,235,0.4);
 }
 
 
@@ -278,7 +278,7 @@ nav a[aria-current="page"] {
   background:
     radial-gradient(
       circle at 80% 0%,
-      rgba(99,102,241,0.08),
+      rgba(37,99,235,0.08),
       transparent 28%
     ),
     #0b0e12;
@@ -704,7 +704,7 @@ main {
   background:
     radial-gradient(
       circle,
-      rgba(99,102,241,0.11),
+      rgba(37,99,235,0.11),
       transparent 65%
     );
 
@@ -744,7 +744,7 @@ main {
   background: var(--red);
 
   box-shadow:
-    0 0 12px rgba(99,102,241,0.6);
+    0 0 12px rgba(37,99,235,0.6);
 }
 
 h1 {
@@ -814,11 +814,11 @@ h1 span {
   color: white;
 
   box-shadow:
-    0 12px 35px rgba(99,102,241,0.18);
+    0 12px 35px rgba(37,99,235,0.18);
 }
 
 .button-primary:hover {
-  background: #818cf8;
+  background: #3b82f6;
 }
 
 .button-secondary {
@@ -1067,7 +1067,7 @@ h2 {
 }
 
 .incident.active {
-  border-color: rgba(99,102,241,0.28);
+  border-color: rgba(37,99,235,0.28);
   background: var(--red-soft);
 }
 
@@ -1122,7 +1122,7 @@ h2 {
   background:
     radial-gradient(
       circle at 55% 45%,
-      rgba(99,102,241,0.07),
+      rgba(37,99,235,0.07),
       transparent 24%
     ),
     #0a0d11;
@@ -1215,11 +1215,11 @@ h2 {
 
   background: var(--red);
 
-  border: 3px solid rgba(99,102,241,0.2);
+  border: 3px solid rgba(37,99,235,0.2);
 
   box-shadow:
-    0 0 0 5px rgba(99,102,241,0.08),
-    0 0 25px rgba(99,102,241,0.55);
+    0 0 0 5px rgba(37,99,235,0.08),
+    0 0 25px rgba(37,99,235,0.55);
 }
 
 .point-one {
@@ -1393,12 +1393,12 @@ h2 {
 }
 
 .roadmap-item.active .roadmap-dot {
-  border-color: rgba(99,102,241,0.45);
+  border-color: rgba(37,99,235,0.45);
 
   color: var(--red);
 
   box-shadow:
-    0 0 20px rgba(99,102,241,0.1);
+    0 0 20px rgba(37,99,235,0.1);
 }
 
 .roadmap-content h3 {
@@ -1446,7 +1446,7 @@ h2 {
   background:
     radial-gradient(
       circle at 80% 50%,
-      rgba(99,102,241,0.10),
+      rgba(37,99,235,0.10),
       transparent 35%
     ),
     var(--surface);
@@ -1905,7 +1905,7 @@ footer {
   border-color: rgba(66, 211, 146, 0.3);
   background:
     radial-gradient(circle at 85% 30%, rgba(66, 211, 146, 0.12), transparent 40%),
-    radial-gradient(circle at 10% 90%, rgba(99,102,241, 0.10), transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(37,99,235, 0.10), transparent 35%),
     var(--surface);
 }
 
@@ -1977,10 +1977,10 @@ footer {
 
 .notruf {
   background: linear-gradient(180deg, var(--surface-2), var(--surface));
-  border: 1px solid rgba(99,102,241,0.35);
+  border: 1px solid rgba(37,99,235,0.35);
   border-radius: 16px;
   padding: 22px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 6px rgba(99,102,241,0.05);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 6px rgba(37,99,235,0.05);
 }
 
 .notruf-kopf {
@@ -2146,35 +2146,54 @@ footer {
 }
 
 /* =========================================================
-   FARBEN: Blaulicht-Blau + Lila
+   FARBEN: ruhiges Blau (seriös), Lila nur als feiner Akzent
 ========================================================= */
 :root {
-  --blau: #3b82f6;
-  --lila: #8b5cf6;
-  --verlauf: linear-gradient(135deg, var(--blau), var(--lila));
+  --blau: #2563eb;
+  --blau-hell: #3b82f6;
+  --lila: #7c6cf0;
 }
 
 .button-primary {
-  background: var(--verlauf);
-  box-shadow: 0 12px 35px rgba(99,102,241,0.28);
+  background: var(--blau);
+  box-shadow: none;
 }
 
 .button-primary:hover {
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  background: var(--blau-hell);
+}
+
+.button:hover {
+  transform: none;
 }
 
 h1 span {
-  background: var(--verlauf);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blau-hell);
 }
 
-/* Ruhiger: Notruf-Karte ohne Dauerblinken, Akzent im Verlauf */
-.notruf-blink {
-  animation-duration: 2.4s;
+.hero::after {
+  background: radial-gradient(circle, rgba(37,99,235,0.07), transparent 65%);
+}
+
+.notruf {
+  border-color: var(--border);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
 }
 
 .notruf-kopf {
-  color: #a5b4fc;
+  color: #93c5fd;
+}
+
+.notruf-blink {
+  background: var(--blau-hell);
+  animation: none;
+}
+
+.fms-5 {
+  animation: none;
+}
+
+.eyebrow::before,
+.live-punkt {
+  box-shadow: none;
 }
