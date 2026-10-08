@@ -146,7 +146,8 @@ nav a,
 }
 
 nav a:hover,
-.main-nav a:hover {
+.main-nav a:hover,
+nav a[aria-current="page"] {
   color: var(--text);
 }
 
@@ -1315,6 +1316,10 @@ h2 {
   font-size: 14px;
 }
 
+.feature .button {
+  margin-top: 25px;
+}
+
 .feature-line {
   width: 35px;
   height: 2px;
@@ -1505,6 +1510,58 @@ footer {
 
 .footer-links a:hover {
   color: var(--text);
+}
+
+
+/* =========================================================
+   LEGAL PAGES (Impressum / Datenschutz)
+========================================================= */
+
+.legal {
+  padding: 0 0 120px;
+}
+
+.legal-content {
+  max-width: 820px;
+}
+
+.legal-block {
+  margin-top: 14px;
+  padding: 28px 30px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.018);
+}
+
+.legal-block h2 {
+  margin-bottom: 12px;
+
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.legal-block p {
+  color: #cbd0d8;
+}
+
+.legal-block p + p {
+  margin-top: 12px;
+}
+
+.legal-block a {
+  color: #ff625e;
+}
+
+.legal-block a:hover {
+  text-decoration: underline;
+}
+
+.placeholder {
+  color: #ff8b87;
+  font-weight: 700;
 }
 
 

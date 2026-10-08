@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Funktionen – LeitstellenDispo</title>
 
@@ -39,7 +39,7 @@
           Startseite
         </a>
 
-        <a href="funktionen.html">
+        <a href="funktionen.html" aria-current="page">
           Funktionen
         </a>
 
@@ -115,51 +115,53 @@
 
       <!-- NAVIGATION -->
 
-      <div class="menu-card">
+     <div class="menu-card">
 
-        <button
-          class="menu-card-toggle"
-          type="button"
-          aria-expanded="false"
-        >
-          <span>
-            Navigation
-          </span>
+  <button
+    class="menu-card-toggle"
+    type="button"
+    aria-expanded="false"
+  >
 
-          <span class="menu-card-arrow">
-            +
-          </span>
-        </button>
+    <span>
+      Navigation
+    </span>
 
-        <div class="menu-card-content">
+    <span class="menu-card-arrow">
+      +
+    </span>
 
-          <div class="menu-card-inner">
+  </button>
 
-            <div class="menu-links">
+  <div class="menu-card-content">
 
-              <a href="index.html">
-                Startseite
-              </a>
+    <div class="menu-card-inner">
 
-              <a href="funktionen.html">
-                Funktionen
-              </a>
+      <div class="menu-links">
 
-              <a href="entwicklung.html">
-                Entwicklung
-              </a>
+        <a href="index.html">
+          Startseite
+        </a>
 
-              <a href="ueber-das-projekt.html">
-                Über das Projekt
-              </a>
+        <a href="funktionen.html">
+          Funktionen
+        </a>
 
-            </div>
+        <a href="entwicklung.html">
+          Entwicklung
+        </a>
 
-          </div>
-
-        </div>
+        <a href="ueber-das-projekt.html">
+          Über das Projekt
+        </a>
 
       </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 
       <!-- COMMUNITY -->
@@ -171,6 +173,7 @@
           type="button"
           aria-expanded="false"
         >
+
           <span>
             Community
           </span>
@@ -178,6 +181,7 @@
           <span class="menu-card-arrow">
             +
           </span>
+
         </button>
 
         <div class="menu-card-content">
@@ -187,14 +191,12 @@
             <div class="menu-links">
 
               <a
-                href="https://discord.gg/2WXJZtUFK"
-                target="_blank"
-                rel="noopener"
+                href="community.html"
               >
                 Discord
               </a>
 
-              <a href="mailto:info@leitstellendispo.de">
+              <a href="feedback.html">
                 Feedback
               </a>
 
@@ -216,6 +218,7 @@
           type="button"
           aria-expanded="false"
         >
+
           <span>
             Kontakt
           </span>
@@ -223,6 +226,7 @@
           <span class="menu-card-arrow">
             +
           </span>
+
         </button>
 
         <div class="menu-card-content">
@@ -231,15 +235,14 @@
 
             <div class="menu-links">
 
-              <a href="mailto:info@leitstellendispo.de">
+              <a href="fragen.html">
                 Fragen?
               </a>
 
-              <a href="mailto:kontakt@leitstellendispo.de">
-  Team beitreten
-</a>
+            <a href="team.html">Team beitreten</a>
+          
 
-              <a href="mailto:kontakt@leitstellendispo.de">
+              <a href="kooperationen.html">
                 Kooperationen
               </a>
 
@@ -261,6 +264,7 @@
           type="button"
           aria-expanded="false"
         >
+
           <span>
             Rechtliches
           </span>
@@ -268,6 +272,7 @@
           <span class="menu-card-arrow">
             +
           </span>
+
         </button>
 
         <div class="menu-card-content">
@@ -609,7 +614,7 @@
 
           <a
             href="team.html"
-            class="button"
+            class="button button-secondary"
           >
             Werde Teil des Teams
           </a>
@@ -663,140 +668,7 @@
 
   </footer>
 
-
-  <!-- =========================
-       MENU JAVASCRIPT
-  ========================== -->
-
-  <script>
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const menuOverlay =
-      document.getElementById("menuOverlay");
-
-
-    function setMenu(open) {
-
-      menuOverlay.classList.toggle(
-        "open",
-        open
-      );
-
-      menuButton.classList.toggle(
-        "open",
-        open
-      );
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(open)
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        open
-          ? "Menü schließen"
-          : "Menü öffnen"
-      );
-
-      menuOverlay.setAttribute(
-        "aria-hidden",
-        String(!open)
-      );
-
-      document.body.classList.toggle(
-        "menu-open",
-        open
-      );
-
-    }
-
-
-    menuButton.addEventListener(
-      "click",
-      () => {
-
-        setMenu(
-          !menuOverlay.classList.contains("open")
-        );
-
-      }
-    );
-
-
-    menuOverlay.addEventListener(
-      "click",
-      (event) => {
-
-        if (
-          event.target === menuOverlay
-        ) {
-
-          setMenu(false);
-
-        }
-
-      }
-    );
-
-
-    document
-      .querySelectorAll(".menu-card-toggle")
-      .forEach((toggle) => {
-
-        toggle.addEventListener(
-          "click",
-          () => {
-
-            const card =
-              toggle.closest(".menu-card");
-
-            const isOpen =
-              card.classList.toggle("open");
-
-            toggle.setAttribute(
-              "aria-expanded",
-              String(isOpen)
-            );
-
-          }
-        );
-
-      });
-
-
-    document
-      .querySelectorAll(".menu-links a")
-      .forEach((link) => {
-
-        link.addEventListener(
-          "click",
-          () => {
-
-            setMenu(false);
-
-          }
-        );
-
-      });
-
-
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (event.key === "Escape") {
-
-          setMenu(false);
-
-        }
-
-      }
-    );
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

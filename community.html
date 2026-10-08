@@ -1,14 +1,8 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Community – LeitstellenDispo</title>
 
@@ -23,160 +17,319 @@
   <link rel="apple-touch-icon" href="favicon.png.PNG">
 
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-<header class="site-header">
+  <header>
+    <div class="container nav">
 
-  <div class="container header-inner">
-
-    <a href="index.html" class="brand">
-      LeitstellenDispo
-    </a>
-
-    <nav class="main-nav">
-
-      <a href="index.html">
-        Start
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        LEITSTELLENDISPO
       </a>
 
-      <a href="funktionen.html">
-        Funktionen
-      </a>
+      <nav>
 
-      <a href="entwicklung.html">
-        Entwicklung
-      </a>
+        <a href="index.html">
+          Startseite
+        </a>
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="Menü öffnen"
-      >
-        ☰
-      </button>
+        <a href="funktionen.html">
+          Funktionen
+        </a>
 
-    </nav>
+        <a href="entwicklung.html">
+          Entwicklung
+        </a>
 
-  </div>
+        <a
+          href="https://discord.gg/2WXJZtUFK"
+          target="_blank"
+          rel="noopener"
+          class="nav-discord"
+        >
+          Discord
+        </a>
 
-</header>
+        <button
+          class="menu-button"
+          id="menuButton"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+
+          <span
+            class="menu-icon"
+            aria-hidden="true"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+
+          <span class="menu-button-label">
+            Mehr
+          </span>
+
+        </button>
+
+      </nav>
+
+    </div>
+  </header>
 
 
-<div class="menu-overlay" id="menuOverlay"></div>
+  <!-- =========================
+       MENU
+  ========================== -->
+
+  <div
+    class="menu-overlay"
+    id="menuOverlay"
+    aria-hidden="true"
+  >
+
+    <aside
+      class="menu-panel"
+      aria-label="Zusätzliche Navigation"
+    >
+
+      <div class="menu-panel-heading">
+
+        <span>
+          LeitstellenDispo
+        </span>
+
+        <h2>
+          Mehr entdecken.
+        </h2>
+
+      </div>
 
 
-<aside class="side-menu" id="sideMenu">
+      <!-- NAVIGATION -->
 
-  <div class="side-menu-header">
+     <div class="menu-card">
 
-    <button class="menu-back" id="menuBack">
-      ← Zurück
-    </button>
+  <button
+    class="menu-card-toggle"
+    type="button"
+    aria-expanded="false"
+  >
 
-    <h2>
-      Mehr entdecken
-    </h2>
-
-  </div>
-
-
-  <div class="menu-group">
-
-    <button class="menu-group-title">
+    <span>
       Navigation
-      <span>+</span>
-    </button>
+    </span>
 
-    <div class="menu-group-content">
+    <span class="menu-card-arrow">
+      +
+    </span>
 
-      <a href="index.html">Startseite</a>
-      <a href="funktionen.html">Funktionen</a>
-      <a href="entwicklung.html">Entwicklung</a>
-      <a href="ueber-das-projekt.html">Über das Projekt</a>
+  </button>
 
-    </div>
+  <div class="menu-card-content">
 
-  </div>
+    <div class="menu-card-inner">
 
+      <div class="menu-links">
 
-  <div class="menu-group">
+        <a href="index.html">
+          Startseite
+        </a>
 
-    <button class="menu-group-title">
-      Community
-      <span>+</span>
-    </button>
+        <a href="funktionen.html">
+          Funktionen
+        </a>
 
-    <div class="menu-group-content">
+        <a href="entwicklung.html">
+          Entwicklung
+        </a>
 
-      <a href="community.html">Discord</a>
-      <a href="feedback.html">Feedback</a>
+        <a href="ueber-das-projekt.html">
+          Über das Projekt
+        </a>
 
-    </div>
-
-  </div>
-
-
-  <div class="menu-group">
-
-    <button class="menu-group-title">
-      Kontakt
-      <span>+</span>
-    </button>
-
-    <div class="menu-group-content">
-
-      <a href="fragen.html">Fragen?</a>
-      <a href="team.html">Team beitreten</a>
-      <a href="kooperationen.html">Kooperationen</a>
+      </div>
 
     </div>
 
   </div>
 
+</div>
 
-  <div class="menu-group">
 
-    <button class="menu-group-title">
-      Rechtliches
-      <span>+</span>
-    </button>
+      <!-- COMMUNITY -->
 
-    <div class="menu-group-content">
+      <div class="menu-card">
 
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
 
-    </div>
+          <span>
+            Community
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a
+                href="community.html"
+              >
+                Discord
+              </a>
+
+              <a href="feedback.html">
+                Feedback
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- KONTAKT -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span>
+            Kontakt
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="fragen.html">
+                Fragen?
+              </a>
+
+            <a href="team.html">Team beitreten</a>
+          
+
+              <a href="kooperationen.html">
+                Kooperationen
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RECHTLICHES -->
+
+      <div class="menu-card">
+
+        <button
+          class="menu-card-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span>
+            Rechtliches
+          </span>
+
+          <span class="menu-card-arrow">
+            +
+          </span>
+
+        </button>
+
+        <div class="menu-card-content">
+
+          <div class="menu-card-inner">
+
+            <div class="menu-links">
+
+              <a href="impressum.html">
+                Impressum
+              </a>
+
+              <a href="datenschutz.html">
+                Datenschutz
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="menu-footer">
+        LeitstellenDispo · v0.1.0-alpha
+      </div>
+
+    </aside>
 
   </div>
 
-</aside>
 
-
-<main>
+  <main>
 
 
 <section class="hero">
 
-  <div class="container hero-content">
+  <div class="container">
 
-    <div class="section-kicker">
-      COMMUNITY
-    </div>
+    <div class="hero-content">
 
-    <h1>
+      <div class="eyebrow">
+        Community
+      </div>
+
+      <h1>
       Nicht allein spielen.
     </h1>
 
-    <p>
-      Tausche dich mit anderen aus, verfolge die Entwicklung
+      <p class="hero-text">
+        Tausche dich mit anderen aus, verfolge die Entwicklung
       und werde Teil der LeitstellenDispo-Community.
-    </p>
+      </p>
+
+    </div>
 
   </div>
 
@@ -209,10 +362,10 @@
     </div>
 
 
-    <div class="feature-grid">
+    <div class="features">
 
 
-      <article class="feature-card">
+      <article class="feature">
 
         <div class="feature-number">
           01
@@ -230,7 +383,7 @@
       </article>
 
 
-      <article class="feature-card">
+      <article class="feature">
 
         <div class="feature-number">
           02
@@ -248,7 +401,7 @@
       </article>
 
 
-      <article class="feature-card">
+      <article class="feature">
 
         <div class="feature-number">
           03
@@ -276,12 +429,14 @@
       </h2>
 
       <p>
-        Der Einladungslink wird hier veröffentlicht,
-        sobald die Community bereit ist.
+        Neuigkeiten, Austausch und deine Ideen –
+        alles an einem Ort. Wir freuen uns auf dich!
       </p>
 
       <a
-        href="#"
+        href="https://discord.gg/2WXJZtUFK"
+        target="_blank"
+        rel="noopener"
         class="button button-primary"
       >
         Discord beitreten
@@ -297,91 +452,47 @@
 </main>
 
 
-<footer class="site-footer">
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-  <div class="container footer-inner">
+  <footer>
 
-    <div>
-      © 2026 LeitstellenDispo
+    <div class="container footer-inner">
+
+      <div class="footer-copy">
+        © 2026 LeitstellenDispo
+      </div>
+
+      <div class="footer-links">
+
+        <a href="ueber-das-projekt.html">
+          Über das Projekt
+        </a>
+
+        <a
+          href="https://discord.gg/2WXJZtUFK"
+          target="_blank"
+          rel="noopener"
+        >
+          Discord
+        </a>
+
+        <a href="impressum.html">
+          Impressum
+        </a>
+
+        <a href="datenschutz.html">
+          Datenschutz
+        </a>
+
+      </div>
+
     </div>
 
-    <div class="footer-links">
+  </footer>
 
-      <a href="ueber-das-projekt.html">
-        Über das Projekt
-      </a>
-
-      <a href="community.html">
-        Discord
-      </a>
-
-      <a href="impressum.html">
-        Impressum
-      </a>
-
-      <a href="datenschutz.html">
-        Datenschutz
-      </a>
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-<script>
-
-const menuButton = document.getElementById("menuButton");
-const menuBack = document.getElementById("menuBack");
-const sideMenu = document.getElementById("sideMenu");
-const menuOverlay = document.getElementById("menuOverlay");
-
-function openMenu() {
-  sideMenu.classList.add("open");
-  menuOverlay.classList.add("open");
-}
-
-function closeMenu() {
-  sideMenu.classList.remove("open");
-  menuOverlay.classList.remove("open");
-}
-
-menuButton.addEventListener("click", openMenu);
-menuBack.addEventListener("click", closeMenu);
-menuOverlay.addEventListener("click", closeMenu);
-
-document
-  .querySelectorAll(".menu-group-title")
-  .forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      button.parentElement.classList.toggle("open");
-
-    });
-
-  });
-
-document
-  .querySelectorAll(".side-menu a")
-  .forEach(link => {
-
-    link.addEventListener("click", closeMenu);
-
-  });
-
-document.addEventListener("keydown", event => {
-
-  if (event.key === "Escape") {
-    closeMenu();
-  }
-
-});
-
-</script>
-
+  <script src="script.js"></script>
 
 </body>
-
 </html>
