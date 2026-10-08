@@ -1947,3 +1947,200 @@ footer {
     margin-top: 10px;
   }
 }
+
+/* =========================================================
+   HERO: Einsatz-Vorschau
+========================================================= */
+.hero-raster {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-zusatz {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero-zusatz a {
+  color: var(--text);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.hero-karte {
+  display: grid;
+  gap: 14px;
+  animation: karte-rein 0.8s ease both 0.2s;
+}
+
+.notruf {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid rgba(239,51,64,0.35);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 6px rgba(239,51,64,0.05);
+}
+
+.notruf-kopf {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.notruf-blink {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: blinken 1.1s ease-in-out infinite;
+}
+
+.notruf-titel {
+  display: block;
+  margin-top: 12px;
+  font-size: 21px;
+}
+
+.notruf-adresse,
+.notruf-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.notruf-label {
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+
+.notruf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.notruf-chips span {
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.status-liste {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.status-liste li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.status-liste em {
+  margin-left: auto;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.fms {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  font-weight: 800;
+  font-size: 13px;
+  color: #071009;
+}
+
+.fms-2 { background: var(--green); }
+.fms-3 { background: #f5b83d; }
+.fms-5 { background: #6aa9ff; animation: blinken 1.6s ease-in-out infinite; }
+
+@keyframes blinken {
+  50% { opacity: 0.35; }
+}
+
+@keyframes karte-rein {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+@media (max-width: 950px) {
+  .hero-raster {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .status-liste em { display: none; }
+  .notruf { padding: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-karte, .notruf-blink, .fms-5 { animation: none; }
+}
+
+.schritte {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 26px 0 22px;
+  text-align: left;
+}
+
+.schritte li {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.schritte span {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--red-soft);
+  color: var(--red);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.schritte strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+@media (max-width: 750px) {
+  .schritte { grid-template-columns: 1fr; }
+}
