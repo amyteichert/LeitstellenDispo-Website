@@ -2234,3 +2234,196 @@ h1 span {
   margin-top: 12px;
   font-size: 13px;
 }
+
+/* =========================================================
+   STARTSEITE: DASHBOARD-VORSCHAU (lesbarer, mit FMS-Status)
+========================================================= */
+
+.window-status {
+  text-transform: uppercase;
+}
+
+.dash-heading {
+  font-size: 10px;
+}
+
+.incident-title {
+  font-size: 13px;
+}
+
+.incident-meta {
+  font-size: 11px;
+}
+
+.vehicle-name {
+  font-size: 13px;
+}
+
+.vehicle-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: none;
+}
+
+.vehicle-status .fms {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 5px;
+
+  font-size: 11px;
+}
+
+.fms-4 { background: #ef8a3c; }
+
+/* Ortsname nicht unter dem H1-Schild verstecken */
+.map-label.two {
+  top: 64%;
+  left: 70%;
+}
+
+/* Einsatz-Kürzel an den Kartenpunkten */
+.map-point span {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+
+  transform: translateX(-50%);
+
+  padding: 2px 7px;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  background: var(--surface-2);
+  color: var(--text);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+/* Tablet/Handy: Einsätze und Fahrzeuge unter der Karte statt ausblenden */
+@media (max-width: 850px) {
+  .dashboard-side {
+    display: block;
+  }
+
+  .dashboard-left,
+  .dashboard-right {
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .dashboard-left {
+    order: 2;
+  }
+
+  .dashboard-right {
+    order: 3;
+  }
+
+  .map {
+    order: 1;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 550px) {
+  .map {
+    min-height: 260px;
+  }
+}
+
+/* =========================================================
+   STARTSEITE: MEHR ENTDECKEN (drei Karten)
+========================================================= */
+
+.entdecken-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.entdecken-karte {
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: var(--surface);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.entdecken-karte:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,0.45);
+}
+
+.entdecken-icon {
+  display: inline-grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 22px;
+
+  border-radius: 12px;
+
+  background: var(--red-soft);
+
+  font-size: 24px;
+}
+
+.entdecken-karte h3 {
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.entdecken-karte p {
+  flex: 1;
+
+  margin-top: 10px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+.entdecken-link {
+  margin-top: 22px;
+
+  color: var(--blau-hell);
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+@media (max-width: 850px) {
+  .entdecken-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entdecken-karte,
+  .entdecken-karte:hover {
+    transition: none;
+    transform: none;
+  }
+}
