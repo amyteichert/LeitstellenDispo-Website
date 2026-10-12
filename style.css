@@ -2197,3 +2197,40 @@ h1 span {
 .live-punkt {
   box-shadow: none;
 }
+
+/* =========================================================
+   E-MAIL VORÜBERGEHEND NICHT ERREICHBAR
+   Zum Reaktivieren: Klasse "email-offline" am Link entfernen
+   und den Hinweis "email-offline-hinweis" löschen.
+========================================================= */
+
+.email-offline {
+  opacity: 0.4;
+  filter: grayscale(1);
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.legal-block a.email-offline {
+  color: var(--muted);
+}
+
+.email-offline-hinweis {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.legal-block .email-offline-hinweis {
+  color: var(--muted);
+}
+
+.community-box .email-offline-hinweis {
+  margin-top: 12px;
+  font-size: 13px;
+}
