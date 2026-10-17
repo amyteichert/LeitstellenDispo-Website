@@ -1,0 +1,25 @@
+# Setzt die Cache-Versionsnummer (?v=...) in allen HTML-Seiten neu,
+# sobald style.css oder script.js auf main geändert wurden – egal von welchem Gerät.
+name: Cache-Version
+
+on:
+  push:
+    branches: [main]
+    paths: [style.css, script.js]
+
+permissions:
+  contents: write
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Versionsnummer setzen
+        run: |
+          v=$(TZ=Europe/Berlin date +%Y%m%d%H%M)
+          sed -i -E "s/(style\.css|script\.js)\?v=[0-9]+/\1?v=$v/g" *.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Cache-Version auf $v gesetzt" || echo "Nichts zu ändern"
+          git push
