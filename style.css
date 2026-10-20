@@ -2483,20 +2483,12 @@ h1 span {
 
 /* Community-Box mit Leitstellen-Bild (Funktionen) */
 .community-box-bild {
-  min-height: 340px;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  gap: 0 14px;
+  padding-top: 90px;
+  padding-bottom: 90px;
   background:
     linear-gradient(90deg, #07080c 38%, rgba(7,8,12,0.85) 48%, rgba(7,8,12,0) 66%),
     url("bilder/leitstelle-community.webp") right center / auto 100% no-repeat,
     #07080c;
-}
-
-.community-box-bild .section-kicker,
-.community-box-bild h2 {
-  flex-basis: 100%;
 }
 
 @media (max-width: 900px) {
