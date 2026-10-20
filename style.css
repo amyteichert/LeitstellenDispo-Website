@@ -2470,7 +2470,7 @@ h1 span {
 
 .einblicke-raster {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
