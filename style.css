@@ -1468,6 +1468,10 @@ h2 {
   margin-top: 30px;
 }
 
+.community-box .button + .button {
+  margin-left: 12px;
+}
+
 
 /* =========================================================
    FOOTER
