@@ -223,7 +223,7 @@ document.addEventListener(
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   const elemente = document.querySelectorAll(
-    ".section-heading, .feature, .entdecken-karte, .einblick, .community-box, .control-center, .legal-block, .schritte li, .einblicke h2, .einblicke .section-kicker"
+    ".section-heading, .feature, .entdecken-karte, .einblick, .community-box, .control-center, .legal-block, .schritte li, .einblicke h2, .einblicke .section-kicker, .ablauf li, .schaufenster, .fahrzeug-karte, .phase, .phase-karte, .kachel, .faq-eintrag, .hinweis-band"
   );
 
   const beobachter = new IntersectionObserver((eintraege) => {
@@ -250,7 +250,7 @@ document.addEventListener(
 
 document.addEventListener("pointermove", (event) => {
 
-  const karte = event.target.closest && event.target.closest(".feature, .entdecken-karte");
+  const karte = event.target.closest && event.target.closest(".feature, .entdecken-karte, .kachel, .phase-karte, .fahrzeug-karte");
   if (!karte) return;
 
   const r = karte.getBoundingClientRect();
