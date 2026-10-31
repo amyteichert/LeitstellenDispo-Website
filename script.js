@@ -212,3 +212,49 @@ document.addEventListener(
   window.addEventListener("pagehide", ende);
 
 })();
+
+
+/* Karten und Abschnitte beim Scrollen weich einblenden.
+   Ohne JavaScript bleibt alles sichtbar, weil die Klasse erst hier gesetzt wird. */
+
+(function () {
+
+  if (!("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const elemente = document.querySelectorAll(
+    ".section-heading, .feature, .entdecken-karte, .einblick, .community-box, .control-center, .legal-block, .schritte li, .einblicke h2, .einblicke .section-kicker"
+  );
+
+  const beobachter = new IntersectionObserver((eintraege) => {
+    eintraege.forEach((eintrag) => {
+      if (!eintrag.isIntersecting) return;
+      eintrag.target.classList.add("sichtbar");
+      beobachter.unobserve(eintrag.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  elemente.forEach((element) => {
+    // Geschwister im selben Raster nacheinander einblenden
+    const geschwister = Array.from(element.parentElement.children);
+    const index = geschwister.indexOf(element) % 4;
+    element.style.setProperty("--verzoegerung", index * 0.08 + "s");
+    element.classList.add("einblenden");
+    beobachter.observe(element);
+  });
+
+})();
+
+
+/* Licht auf den Karten folgt der Maus */
+
+document.addEventListener("pointermove", (event) => {
+
+  const karte = event.target.closest && event.target.closest(".feature, .entdecken-karte");
+  if (!karte) return;
+
+  const r = karte.getBoundingClientRect();
+  karte.style.setProperty("--mx", event.clientX - r.left + "px");
+  karte.style.setProperty("--my", event.clientY - r.top + "px");
+
+}, { passive: true });
