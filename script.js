@@ -223,7 +223,7 @@ document.addEventListener(
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   const elemente = document.querySelectorAll(
-    ".section-heading, .feature, .entdecken-karte, .einblick, .community-box, .control-center, .legal-block, .schritte li, .einblicke h2, .einblicke .section-kicker, .ablauf li, .schaufenster, .fahrzeug-karte, .phase, .phase-karte, .kachel, .faq-eintrag, .hinweis-band, .aussage-text, .band-karte, .gross-liste li, .person-karte, .person-text"
+    ".section-heading, .feature, .entdecken-karte, .einblick, .community-box, .control-center, .legal-block, .schritte li, .einblicke h2, .einblicke .section-kicker, .ablauf li, .schaufenster, .fahrzeug-karte, .phase, .phase-karte, .kachel, .faq-eintrag, .hinweis-band, .protokoll, .einheit, .durchsage, .monitor, .ausweis, .person-text"
   );
 
   const beobachter = new IntersectionObserver((eintraege) => {

@@ -389,11 +389,11 @@
         </div>
       </div>
 
-      <ol class="hero-fakten">
-        <li><span>01</span><strong>Kostenlos im Browser</strong>Am PC, Tablet und Handy – ohne Download.</li>
-        <li><span>02</span><strong>Ganz Deutschland</strong>Echte Karte, deine Wachen, wo du willst.</li>
-        <li><span>03</span><strong>Rettungsdienst &amp; Feuerwehr</strong>Alarmieren, Funk mit FMS-Status, Lage im Blick.</li>
-      </ol>
+      <ul class="lage-leiste">
+        <li><span class="lampe lampe--gruen"></span><b>Online</b>Alpha läuft – kostenlos</li>
+        <li><span class="lampe lampe--blau"></span><b>Browser</b>PC, Tablet und Handy</li>
+        <li><span class="lampe lampe--gelb"></span><b>Karte</b>Ganz Deutschland</li>
+      </ul>
     </div>
     </section>
 
@@ -402,43 +402,59 @@
          WAS IST LEITSTELLENDISPO
     ========================== -->
 
-    <section class="aussage">
+    <section>
       <div class="container">
 
-        <div class="aussage-raster">
-          <div class="section-kicker">
-            Was du machst
+        <div class="protokoll-raster">
+
+          <div>
+            <div class="section-kicker">
+              Was du machst
+            </div>
+            <h2>
+              Du sitzt
+              <span>am Funk.</span>
+            </h2>
+            <p class="protokoll-text">
+              Notrufe kommen rein, du alarmierst Rettungsdienst und Feuerwehr und
+              behältst jedes Fahrzeug im Blick. Wer fährt, entscheidest du –
+              die Fahrzeuge melden sich per FMS-Status zurück.
+            </p>
           </div>
-          <p class="aussage-text">
-            LeitstellenDispo ist eine Leitstellen-Simulation im Browser. Notrufe kommen rein,
-            du alarmierst Rettungsdienst und Feuerwehr, behältst den Funk im Blick und baust
-            Wache für Wache dein Netz auf. Wer fährt, entscheidest du – den Rest
-            übernimmt die Simulation.
-          </p>
+
+          <div class="protokoll" aria-label="Beispiel eines Einsatzprotokolls">
+            <div class="protokoll-kopf">
+              <span><span class="lampe lampe--rot"></span> Einsatzprotokoll</span>
+              <span>H1 · Verkehrsunfall</span>
+            </div>
+            <ol class="protokoll-liste">
+              <li><time>14:02:11</time><span class="fms fms-notruf">!</span>Notruf 112: Verkehrsunfall, 2 Verletzte</li>
+              <li><time>14:02:34</time><span class="fms fms-du">▶</span><strong>Du alarmierst RTW 1 und HLF 20</strong></li>
+              <li><time>14:02:51</time><span class="fms fms-3">3</span>RTW 1 · Einsatz übernommen</li>
+              <li><time>14:08:15</time><span class="fms fms-4">4</span>RTW 1 · am Einsatzort</li>
+              <li><time>14:09:02</time><span class="fms fms-5">5</span>RTW 1 · Sprechwunsch: Notarzt benötigt</li>
+              <li><time>14:09:20</time><span class="fms fms-du">▶</span><strong>Du alarmierst NEF 1</strong></li>
+            </ol>
+          </div>
+
         </div>
 
-        <div class="bereich-karten">
-          <a href="funktionen.html" class="bereich-karte">
-            <span class="streifen" aria-hidden="true"></span>
-            <span class="bereich-pfeil" aria-hidden="true">→</span>
-            <div class="section-kicker">Rettungsdienst</div>
-            <h3>Jede Minute zählt.<span>Du schickst die Hilfe.</span></h3>
-            <p>
-              Verletzte, Notfälle, Verlegungen: Du wählst das passende Rettungsmittel,
-              holst den Notarzt dazu und behältst freie Wagen im Blick.
-            </p>
-            <div class="tag-reihe"><span>RTW</span><span>NEF</span><span>KTW</span><span>RTH</span></div>
+        <div class="einheiten">
+          <a href="funktionen.html" class="einheit einheit--rd">
+            <span class="einheit-symbol" aria-hidden="true">🚑</span>
+            <div>
+              <h3>Rettungsdienst</h3>
+              <p>Notfälle, Verletzte, Verlegungen – mit dem passenden Rettungsmittel.</p>
+              <div class="fahrzeug-chips"><span>RTW</span><span>NEF</span><span>KTW</span><span>RTH</span></div>
+            </div>
           </a>
-          <a href="funktionen.html" class="bereich-karte">
-            <span class="streifen" aria-hidden="true"></span>
-            <span class="bereich-pfeil" aria-hidden="true">→</span>
-            <div class="section-kicker">Feuerwehr</div>
-            <h3>Brand, Unfall, Technik.<span>Du stellst die Kräfte.</span></h3>
-            <p>
-              Vom Kleinbrand bis zur Menschenrettung: Stell die richtigen Fahrzeuge
-              zusammen und schick sie von der nächsten Wache los.
-            </p>
-            <div class="tag-reihe"><span>LF</span><span>HLF</span><span>TLF</span><span>DLK</span></div>
+          <a href="funktionen.html" class="einheit einheit--fw">
+            <span class="einheit-symbol" aria-hidden="true">🚒</span>
+            <div>
+              <h3>Feuerwehr</h3>
+              <p>Vom Kleinbrand bis zur Menschenrettung – die richtigen Kräfte von der nächsten Wache.</p>
+              <div class="fahrzeug-chips"><span>LF</span><span>HLF</span><span>TLF</span><span>DLK</span></div>
+            </div>
           </a>
         </div>
 
@@ -595,21 +611,23 @@
         </div>
 
         <ol class="schritte">
-          <li><span>01</span><strong>Konto anlegen</strong>E-Mail, Name, Passwort – fertig. Oder erst mal als Gast reinschnuppern.</li>
-          <li><span>02</span><strong>Erste Wache bauen</strong>Irgendwo in Deutschland, wo du willst – vor deiner Haustür oder ganz woanders.</li>
-          <li><span>03</span><strong>Notrufe abarbeiten</strong>Die Tour zeigt dir alles Schritt für Schritt. Danach gehört die Leitstelle dir.</li>
+          <li><span class="taste">1</span><strong>Konto anlegen</strong>E-Mail, Name, Passwort – fertig. Oder erst mal als Gast reinschnuppern.</li>
+          <li><span class="taste">2</span><strong>Erste Wache bauen</strong>Irgendwo in Deutschland, wo du willst – vor deiner Haustür oder ganz woanders.</li>
+          <li><span class="taste">3</span><strong>Notrufe abarbeiten</strong>Die Tour zeigt dir alles Schritt für Schritt. Danach gehört die Leitstelle dir.</li>
         </ol>
 
-        <div class="band-karte">
-          <div>
-            <div class="section-kicker">Gründungs-Spieler</div>
-            <h3>Von Anfang an dabei.</h3>
-            <p>
-              Wer schon in der Alpha spielt, bekommt ein eigenes Abzeichen
-              und wird in den Credits genannt.
-            </p>
+        <div class="durchsage">
+          <div class="durchsage-kopf">
+            <span class="lampe lampe--gelb"></span>
+            Durchsage an alle
           </div>
-          <a href="https://spiel.leitstellendispo.de" class="band-link">Jetzt kostenlos spielen →</a>
+          <p>
+            <strong>Gründungs-Spieler gesucht:</strong> Wer schon in der Alpha spielt,
+            bekommt ein eigenes Abzeichen und wird in den Credits genannt.
+          </p>
+          <a href="https://spiel.leitstellendispo.de" class="button button-primary">
+            Jetzt kostenlos spielen
+          </a>
         </div>
 
       </div>
@@ -814,25 +832,37 @@
          IM SPIEL
     ========================== -->
 
-    <section class="liste-abschnitt">
-      <div class="container liste-raster">
+    <section>
+      <div class="container">
 
-        <div>
-          <div class="section-kicker">
-            Im Spiel
+        <div class="section-heading">
+          <div class="section-title">
+            <div class="section-kicker">
+              Im Spiel
+            </div>
+            <h2>
+              Was schon
+              <span>läuft.</span>
+            </h2>
           </div>
-          <p class="liste-intro">
-            Vom ersten Notruf bis zur großen Leitstelle: Das steckt
-            schon jetzt in LeitstellenDispo – und es kommt laufend mehr dazu.
+          <p class="section-description">
+            Vom ersten Notruf bis zur großen Leitstelle – und es kommt laufend mehr dazu.
           </p>
         </div>
 
-        <ul class="gross-liste">
-          <li><strong>Einsätze</strong><span>Notrufe, Fahrzeugbedarf, passende Kräfte</span></li>
-          <li><strong>Funk &amp; FMS</strong><span>Status, Sprechwünsche, Lagemeldungen</span></li>
-          <li><strong>Wachen</strong><span>Bauen, ausbauen, Personal ausbilden</span></li>
-          <li><strong>Deutschland</strong><span>Echte Karte und echte Anfahrtswege</span></li>
-        </ul>
+        <div class="monitor">
+          <div class="monitor-kopf">
+            <span>Lage · Spielstand Alpha</span>
+            <span><span class="lampe lampe--gruen"></span> live</span>
+          </div>
+          <ul class="monitor-liste">
+            <li><code>EIN</code><strong>Einsätze</strong><span>Notrufe, Fahrzeugbedarf, passende Kräfte</span><em class="bereit">verfügbar</em></li>
+            <li><code>FMS</code><strong>Funk &amp; Status</strong><span>Status, Sprechwünsche, Lagemeldungen</span><em class="bereit">verfügbar</em></li>
+            <li><code>WA</code><strong>Wachen</strong><span>Bauen, ausbauen, Personal ausbilden</span><em class="bereit">verfügbar</em></li>
+            <li><code>KAR</code><strong>Deutschland</strong><span>Echte Karte und echte Anfahrtswege</span><em class="bereit">verfügbar</em></li>
+            <li><code>POL</code><strong>Polizei &amp; THW</strong><span>Weitere Organisationen kommen Schritt für Schritt</span><em>geplant</em></li>
+          </ul>
+        </div>
 
       </div>
     </section>
